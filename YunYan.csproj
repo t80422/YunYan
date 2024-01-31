@@ -137,7 +137,8 @@
   <ItemGroup>
     <Compile Include="ExportData.cs" />
     <Compile Include="HourJudgment.cs" />
-    <Compile Include="ModbusData.cs" />
+    <Compile Include="Models\ModbusData.cs" />
+    <Compile Include="Models\NodeConditionModel.cs" />
     <Compile Include="ReportExporter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

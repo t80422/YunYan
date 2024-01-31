@@ -47,10 +47,8 @@ namespace YunYan
             this.label7 = new System.Windows.Forms.Label();
             this.txt9O1A201 = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.tmrData = new System.Windows.Forms.Timer(this.components);
             this.txt948P201 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.tmrModbus = new System.Windows.Forms.Timer(this.components);
             this.txt948P201_sc = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.txt9O1A201_sc = new System.Windows.Forms.TextBox();
@@ -88,7 +86,6 @@ namespace YunYan
             this.btnSave = new System.Windows.Forms.Button();
             this.txtSavePath = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.btnRestart = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpConversion = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -161,46 +158,84 @@ namespace YunYan
             this.lblTI_642_1 = new System.Windows.Forms.Label();
             this.lblTI_642_2 = new System.Windows.Forms.Label();
             this.lblTI_643_1 = new System.Windows.Forms.Label();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.button9 = new System.Windows.Forms.Button();
+            this.tpStatus = new System.Windows.Forms.TabPage();
+            this.btnRestart = new System.Windows.Forms.Button();
+            this.btnSave_status = new System.Windows.Forms.Button();
+            this.grp948P201 = new System.Windows.Forms.GroupBox();
+            this.radioButton36 = new System.Windows.Forms.RadioButton();
+            this.radioButton25 = new System.Windows.Forms.RadioButton();
+            this.radioButton26 = new System.Windows.Forms.RadioButton();
+            this.radioButton27 = new System.Windows.Forms.RadioButton();
+            this.grp9O1A201 = new System.Windows.Forms.GroupBox();
+            this.radioButton35 = new System.Windows.Forms.RadioButton();
+            this.radioButton22 = new System.Windows.Forms.RadioButton();
+            this.radioButton23 = new System.Windows.Forms.RadioButton();
+            this.radioButton24 = new System.Windows.Forms.RadioButton();
+            this.grp9E4A201 = new System.Windows.Forms.GroupBox();
+            this.radioButton31 = new System.Windows.Forms.RadioButton();
+            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.radioButton11 = new System.Windows.Forms.RadioButton();
+            this.radioButton12 = new System.Windows.Forms.RadioButton();
+            this.grp936P201 = new System.Windows.Forms.GroupBox();
+            this.radioButton34 = new System.Windows.Forms.RadioButton();
+            this.radioButton19 = new System.Windows.Forms.RadioButton();
+            this.radioButton20 = new System.Windows.Forms.RadioButton();
+            this.radioButton21 = new System.Windows.Forms.RadioButton();
+            this.grp9F4E203 = new System.Windows.Forms.GroupBox();
+            this.radioButton30 = new System.Windows.Forms.RadioButton();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.grp937P201 = new System.Windows.Forms.GroupBox();
+            this.radioButton33 = new System.Windows.Forms.RadioButton();
+            this.radioButton16 = new System.Windows.Forms.RadioButton();
+            this.radioButton17 = new System.Windows.Forms.RadioButton();
+            this.radioButton18 = new System.Windows.Forms.RadioButton();
+            this.grp9F4E201 = new System.Windows.Forms.GroupBox();
+            this.radioButton29 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.grp9D1A201 = new System.Windows.Forms.GroupBox();
+            this.radioButton32 = new System.Windows.Forms.RadioButton();
+            this.radioButton13 = new System.Windows.Forms.RadioButton();
+            this.radioButton14 = new System.Windows.Forms.RadioButton();
+            this.radioButton15 = new System.Windows.Forms.RadioButton();
+            this.grp9F3E201 = new System.Windows.Forms.GroupBox();
+            this.radioButton28 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label51 = new System.Windows.Forms.Label();
-            this.button7 = new System.Windows.Forms.Button();
             this.label49 = new System.Windows.Forms.Label();
-            this.button8 = new System.Windows.Forms.Button();
             this.label50 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.txt937P201_EL = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.txt937P201_LL = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.txt937P201_UL = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.txt9D1A201_EL = new System.Windows.Forms.TextBox();
             this.label45 = new System.Windows.Forms.Label();
-            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.txt9D1A201_LL = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
-            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.txt9D1A201_UL = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.label40 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.txt9E4A201_EL = new System.Windows.Forms.TextBox();
             this.label36 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.txt9E4A201_LL = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.txt9E4A201_UL = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.txt9F4E203_EL = new System.Windows.Forms.TextBox();
             this.label35 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txt9F4E203_LL = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txt9F4E203_UL = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
@@ -238,6 +273,8 @@ namespace YunYan
             this.label54 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
+            this.tmrGetData = new System.Windows.Forms.Timer(this.components);
+            this.tmrUpdate = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nud9F3E201_divisor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud9F3E201_as)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nud9F4E201_as)).BeginInit();
@@ -261,7 +298,16 @@ namespace YunYan
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            this.tabPage6.SuspendLayout();
+            this.tpStatus.SuspendLayout();
+            this.grp948P201.SuspendLayout();
+            this.grp9O1A201.SuspendLayout();
+            this.grp9E4A201.SuspendLayout();
+            this.grp936P201.SuspendLayout();
+            this.grp9F4E203.SuspendLayout();
+            this.grp937P201.SuspendLayout();
+            this.grp9F4E201.SuspendLayout();
+            this.grp9D1A201.SuspendLayout();
+            this.grp9F3E201.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.tabPage14.SuspendLayout();
             this.SuspendLayout();
@@ -300,7 +346,7 @@ namespace YunYan
             this.label1.Location = new System.Drawing.Point(26, 51);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 16);
+            this.label1.Size = new System.Drawing.Size(72, 16);
             this.label1.TabIndex = 4;
             this.label1.Text = "9F3E201";
             // 
@@ -311,7 +357,7 @@ namespace YunYan
             this.label2.Location = new System.Drawing.Point(26, 95);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 16);
+            this.label2.Size = new System.Drawing.Size(72, 16);
             this.label2.TabIndex = 5;
             this.label2.Text = "9F4E201";
             // 
@@ -322,7 +368,7 @@ namespace YunYan
             this.label3.Location = new System.Drawing.Point(26, 137);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 16);
+            this.label3.Size = new System.Drawing.Size(72, 16);
             this.label3.TabIndex = 6;
             this.label3.Text = "9F4E203";
             // 
@@ -333,7 +379,7 @@ namespace YunYan
             this.label4.Location = new System.Drawing.Point(26, 181);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(74, 16);
+            this.label4.Size = new System.Drawing.Size(75, 16);
             this.label4.TabIndex = 7;
             this.label4.Text = "9E4A201";
             // 
@@ -362,7 +408,7 @@ namespace YunYan
             this.label5.Location = new System.Drawing.Point(26, 223);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(76, 16);
+            this.label5.Size = new System.Drawing.Size(77, 16);
             this.label5.TabIndex = 9;
             this.label5.Text = "9D1A201";
             // 
@@ -382,7 +428,7 @@ namespace YunYan
             this.label6.Location = new System.Drawing.Point(26, 309);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 16);
+            this.label6.Size = new System.Drawing.Size(71, 16);
             this.label6.TabIndex = 14;
             this.label6.Text = "936P201";
             // 
@@ -402,7 +448,7 @@ namespace YunYan
             this.label7.Location = new System.Drawing.Point(26, 266);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(70, 16);
+            this.label7.Size = new System.Drawing.Size(71, 16);
             this.label7.TabIndex = 12;
             this.label7.Text = "937P201";
             // 
@@ -422,15 +468,9 @@ namespace YunYan
             this.label9.Location = new System.Drawing.Point(26, 352);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 16);
+            this.label9.Size = new System.Drawing.Size(77, 16);
             this.label9.TabIndex = 16;
             this.label9.Text = "9O1A201";
-            // 
-            // tmrData
-            // 
-            this.tmrData.Enabled = true;
-            this.tmrData.Interval = 5000;
-            this.tmrData.Tick += new System.EventHandler(this.tmrData_Tick);
             // 
             // txt948P201
             // 
@@ -448,14 +488,9 @@ namespace YunYan
             this.label8.Location = new System.Drawing.Point(26, 395);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(70, 16);
+            this.label8.Size = new System.Drawing.Size(71, 16);
             this.label8.TabIndex = 18;
             this.label8.Text = "948P201";
-            // 
-            // tmrModbus
-            // 
-            this.tmrModbus.Interval = 5000;
-            this.tmrModbus.Tick += new System.EventHandler(this.tmrModbus_Tick);
             // 
             // txt948P201_sc
             // 
@@ -473,7 +508,7 @@ namespace YunYan
             this.label21.Location = new System.Drawing.Point(221, 395);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(94, 16);
+            this.label21.Size = new System.Drawing.Size(95, 16);
             this.label21.TabIndex = 59;
             this.label21.Text = "948P201_sc";
             // 
@@ -493,7 +528,7 @@ namespace YunYan
             this.label22.Location = new System.Drawing.Point(221, 352);
             this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(100, 16);
+            this.label22.Size = new System.Drawing.Size(101, 16);
             this.label22.TabIndex = 57;
             this.label22.Text = "9O1A201_sc";
             // 
@@ -513,7 +548,7 @@ namespace YunYan
             this.label23.Location = new System.Drawing.Point(221, 309);
             this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(94, 16);
+            this.label23.Size = new System.Drawing.Size(95, 16);
             this.label23.TabIndex = 55;
             this.label23.Text = "936P201_sc";
             // 
@@ -533,7 +568,7 @@ namespace YunYan
             this.label25.Location = new System.Drawing.Point(221, 223);
             this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(100, 16);
+            this.label25.Size = new System.Drawing.Size(101, 16);
             this.label25.TabIndex = 51;
             this.label25.Text = "9D1A201_sc";
             // 
@@ -553,7 +588,7 @@ namespace YunYan
             this.label26.Location = new System.Drawing.Point(221, 181);
             this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(98, 16);
+            this.label26.Size = new System.Drawing.Size(99, 16);
             this.label26.TabIndex = 49;
             this.label26.Text = "9E4A201_sc";
             // 
@@ -564,7 +599,7 @@ namespace YunYan
             this.label27.Location = new System.Drawing.Point(221, 137);
             this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(95, 16);
+            this.label27.Size = new System.Drawing.Size(96, 16);
             this.label27.TabIndex = 48;
             this.label27.Text = "9F4E203_sc";
             // 
@@ -575,7 +610,7 @@ namespace YunYan
             this.label28.Location = new System.Drawing.Point(221, 94);
             this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(95, 16);
+            this.label28.Size = new System.Drawing.Size(96, 16);
             this.label28.TabIndex = 47;
             this.label28.Text = "9F4E201_sc";
             // 
@@ -586,7 +621,7 @@ namespace YunYan
             this.label29.Location = new System.Drawing.Point(221, 51);
             this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(95, 16);
+            this.label29.Size = new System.Drawing.Size(96, 16);
             this.label29.TabIndex = 46;
             this.label29.Text = "9F3E201_sc";
             // 
@@ -646,7 +681,7 @@ namespace YunYan
             this.label10.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label10.Location = new System.Drawing.Point(459, 25);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(41, 16);
+            this.label10.Size = new System.Drawing.Size(42, 16);
             this.label10.TabIndex = 62;
             this.label10.Text = "除數";
             // 
@@ -656,7 +691,7 @@ namespace YunYan
             this.label11.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.label11.Location = new System.Drawing.Point(665, 25);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(22, 16);
+            this.label11.Size = new System.Drawing.Size(23, 16);
             this.label11.TabIndex = 64;
             this.label11.Text = "+-";
             // 
@@ -971,7 +1006,7 @@ namespace YunYan
             this.btnSave.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.btnSave.Location = new System.Drawing.Point(499, 438);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(85, 33);
+            this.btnSave.Size = new System.Drawing.Size(86, 33);
             this.btnSave.TabIndex = 81;
             this.btnSave.Text = "儲存設定";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -992,21 +1027,9 @@ namespace YunYan
             this.label12.Location = new System.Drawing.Point(26, 441);
             this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(109, 16);
+            this.label12.Size = new System.Drawing.Size(110, 16);
             this.label12.TabIndex = 82;
             this.label12.Text = "檔案輸出位址";
-            // 
-            // btnRestart
-            // 
-            this.btnRestart.AutoSize = true;
-            this.btnRestart.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnRestart.Location = new System.Drawing.Point(631, 438);
-            this.btnRestart.Name = "btnRestart";
-            this.btnRestart.Size = new System.Drawing.Size(85, 33);
-            this.btnRestart.TabIndex = 84;
-            this.btnRestart.Text = "繼續執行";
-            this.btnRestart.UseVisualStyleBackColor = true;
-            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // tabControl1
             // 
@@ -1016,7 +1039,7 @@ namespace YunYan
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tpStatus);
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage10);
             this.tabControl1.Controls.Add(this.tabPage11);
@@ -1033,7 +1056,6 @@ namespace YunYan
             // tpConversion
             // 
             this.tpConversion.Controls.Add(this.label1);
-            this.tpConversion.Controls.Add(this.btnRestart);
             this.tpConversion.Controls.Add(this.txt9F3E201);
             this.tpConversion.Controls.Add(this.txtSavePath);
             this.tpConversion.Controls.Add(this.txt9F4E201);
@@ -1868,164 +1890,686 @@ namespace YunYan
             this.lblTI_643_1.Tag = "";
             this.lblTI_643_1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tabPage6
+            // tpStatus
             // 
-            this.tabPage6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tabPage6.Controls.Add(this.button9);
-            this.tabPage6.Controls.Add(this.label51);
-            this.tabPage6.Controls.Add(this.button7);
-            this.tabPage6.Controls.Add(this.label49);
-            this.tabPage6.Controls.Add(this.button8);
-            this.tabPage6.Controls.Add(this.label50);
-            this.tabPage6.Controls.Add(this.button5);
-            this.tabPage6.Controls.Add(this.textBox17);
-            this.tabPage6.Controls.Add(this.label41);
-            this.tabPage6.Controls.Add(this.textBox18);
-            this.tabPage6.Controls.Add(this.label42);
-            this.tabPage6.Controls.Add(this.textBox19);
-            this.tabPage6.Controls.Add(this.label43);
-            this.tabPage6.Controls.Add(this.label44);
-            this.tabPage6.Controls.Add(this.button6);
-            this.tabPage6.Controls.Add(this.textBox20);
-            this.tabPage6.Controls.Add(this.label45);
-            this.tabPage6.Controls.Add(this.textBox21);
-            this.tabPage6.Controls.Add(this.label46);
-            this.tabPage6.Controls.Add(this.textBox22);
-            this.tabPage6.Controls.Add(this.label47);
-            this.tabPage6.Controls.Add(this.label48);
-            this.tabPage6.Controls.Add(this.button4);
-            this.tabPage6.Controls.Add(this.label40);
-            this.tabPage6.Controls.Add(this.button3);
-            this.tabPage6.Controls.Add(this.textBox14);
-            this.tabPage6.Controls.Add(this.label36);
-            this.tabPage6.Controls.Add(this.textBox15);
-            this.tabPage6.Controls.Add(this.label37);
-            this.tabPage6.Controls.Add(this.textBox16);
-            this.tabPage6.Controls.Add(this.label38);
-            this.tabPage6.Controls.Add(this.label39);
-            this.tabPage6.Controls.Add(this.button2);
-            this.tabPage6.Controls.Add(this.button1);
-            this.tabPage6.Controls.Add(this.textBox13);
-            this.tabPage6.Controls.Add(this.label35);
-            this.tabPage6.Controls.Add(this.textBox12);
-            this.tabPage6.Controls.Add(this.label34);
-            this.tabPage6.Controls.Add(this.textBox11);
-            this.tabPage6.Controls.Add(this.label33);
-            this.tabPage6.Controls.Add(this.label32);
-            this.tabPage6.Controls.Add(this.label31);
-            this.tabPage6.Location = new System.Drawing.Point(4, 29);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(1896, 949);
-            this.tabPage6.TabIndex = 6;
-            this.tabPage6.Text = "維修及上下限設定";
-            this.tabPage6.UseVisualStyleBackColor = true;
+            this.tpStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tpStatus.Controls.Add(this.btnRestart);
+            this.tpStatus.Controls.Add(this.btnSave_status);
+            this.tpStatus.Controls.Add(this.grp948P201);
+            this.tpStatus.Controls.Add(this.grp9O1A201);
+            this.tpStatus.Controls.Add(this.grp9E4A201);
+            this.tpStatus.Controls.Add(this.grp936P201);
+            this.tpStatus.Controls.Add(this.grp9F4E203);
+            this.tpStatus.Controls.Add(this.grp937P201);
+            this.tpStatus.Controls.Add(this.grp9F4E201);
+            this.tpStatus.Controls.Add(this.grp9D1A201);
+            this.tpStatus.Controls.Add(this.grp9F3E201);
+            this.tpStatus.Controls.Add(this.label51);
+            this.tpStatus.Controls.Add(this.label49);
+            this.tpStatus.Controls.Add(this.label50);
+            this.tpStatus.Controls.Add(this.txt937P201_EL);
+            this.tpStatus.Controls.Add(this.label41);
+            this.tpStatus.Controls.Add(this.txt937P201_LL);
+            this.tpStatus.Controls.Add(this.label42);
+            this.tpStatus.Controls.Add(this.txt937P201_UL);
+            this.tpStatus.Controls.Add(this.label43);
+            this.tpStatus.Controls.Add(this.label44);
+            this.tpStatus.Controls.Add(this.txt9D1A201_EL);
+            this.tpStatus.Controls.Add(this.label45);
+            this.tpStatus.Controls.Add(this.txt9D1A201_LL);
+            this.tpStatus.Controls.Add(this.label46);
+            this.tpStatus.Controls.Add(this.txt9D1A201_UL);
+            this.tpStatus.Controls.Add(this.label47);
+            this.tpStatus.Controls.Add(this.label48);
+            this.tpStatus.Controls.Add(this.label40);
+            this.tpStatus.Controls.Add(this.txt9E4A201_EL);
+            this.tpStatus.Controls.Add(this.label36);
+            this.tpStatus.Controls.Add(this.txt9E4A201_LL);
+            this.tpStatus.Controls.Add(this.label37);
+            this.tpStatus.Controls.Add(this.txt9E4A201_UL);
+            this.tpStatus.Controls.Add(this.label38);
+            this.tpStatus.Controls.Add(this.label39);
+            this.tpStatus.Controls.Add(this.txt9F4E203_EL);
+            this.tpStatus.Controls.Add(this.label35);
+            this.tpStatus.Controls.Add(this.txt9F4E203_LL);
+            this.tpStatus.Controls.Add(this.label34);
+            this.tpStatus.Controls.Add(this.txt9F4E203_UL);
+            this.tpStatus.Controls.Add(this.label33);
+            this.tpStatus.Controls.Add(this.label32);
+            this.tpStatus.Controls.Add(this.label31);
+            this.tpStatus.Location = new System.Drawing.Point(4, 29);
+            this.tpStatus.Name = "tpStatus";
+            this.tpStatus.Size = new System.Drawing.Size(1896, 949);
+            this.tpStatus.TabIndex = 6;
+            this.tpStatus.Text = "維修及上下限設定";
+            this.tpStatus.UseVisualStyleBackColor = true;
             // 
-            // button9
+            // btnRestart
             // 
-            this.button9.Location = new System.Drawing.Point(340, 544);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(105, 31);
-            this.button9.TabIndex = 41;
-            this.button9.Text = "正常";
-            this.button9.UseVisualStyleBackColor = true;
+            this.btnRestart.AutoSize = true;
+            this.btnRestart.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.btnRestart.Location = new System.Drawing.Point(1206, 596);
+            this.btnRestart.Name = "btnRestart";
+            this.btnRestart.Size = new System.Drawing.Size(103, 37);
+            this.btnRestart.TabIndex = 85;
+            this.btnRestart.Text = "繼續執行";
+            this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
+            // 
+            // btnSave_status
+            // 
+            this.btnSave_status.Location = new System.Drawing.Point(1329, 594);
+            this.btnSave_status.Name = "btnSave_status";
+            this.btnSave_status.Size = new System.Drawing.Size(85, 37);
+            this.btnSave_status.TabIndex = 48;
+            this.btnSave_status.Text = "存檔";
+            this.btnSave_status.UseVisualStyleBackColor = true;
+            this.btnSave_status.Click += new System.EventHandler(this.btnSave_status_Click);
+            // 
+            // grp948P201
+            // 
+            this.grp948P201.Controls.Add(this.radioButton36);
+            this.grp948P201.Controls.Add(this.radioButton25);
+            this.grp948P201.Controls.Add(this.radioButton26);
+            this.grp948P201.Controls.Add(this.radioButton27);
+            this.grp948P201.Location = new System.Drawing.Point(304, 572);
+            this.grp948P201.Name = "grp948P201";
+            this.grp948P201.Size = new System.Drawing.Size(346, 61);
+            this.grp948P201.TabIndex = 46;
+            this.grp948P201.TabStop = false;
+            this.grp948P201.Text = "狀態";
+            // 
+            // radioButton36
+            // 
+            this.radioButton36.AutoSize = true;
+            this.radioButton36.Location = new System.Drawing.Point(273, 29);
+            this.radioButton36.Name = "radioButton36";
+            this.radioButton36.Size = new System.Drawing.Size(69, 23);
+            this.radioButton36.TabIndex = 9;
+            this.radioButton36.Tag = "00";
+            this.radioButton36.Text = "停機";
+            this.radioButton36.UseVisualStyleBackColor = true;
+            // 
+            // radioButton25
+            // 
+            this.radioButton25.AutoSize = true;
+            this.radioButton25.Location = new System.Drawing.Point(198, 29);
+            this.radioButton25.Name = "radioButton25";
+            this.radioButton25.Size = new System.Drawing.Size(69, 23);
+            this.radioButton25.TabIndex = 8;
+            this.radioButton25.Tag = "20";
+            this.radioButton25.Text = "校正";
+            this.radioButton25.UseVisualStyleBackColor = true;
+            // 
+            // radioButton26
+            // 
+            this.radioButton26.AutoSize = true;
+            this.radioButton26.Location = new System.Drawing.Point(81, 29);
+            this.radioButton26.Name = "radioButton26";
+            this.radioButton26.Size = new System.Drawing.Size(111, 23);
+            this.radioButton26.TabIndex = 7;
+            this.radioButton26.Tag = "31";
+            this.radioButton26.Text = "維修保養";
+            this.radioButton26.UseVisualStyleBackColor = true;
+            // 
+            // radioButton27
+            // 
+            this.radioButton27.AutoSize = true;
+            this.radioButton27.Checked = true;
+            this.radioButton27.Location = new System.Drawing.Point(6, 29);
+            this.radioButton27.Name = "radioButton27";
+            this.radioButton27.Size = new System.Drawing.Size(69, 23);
+            this.radioButton27.TabIndex = 6;
+            this.radioButton27.TabStop = true;
+            this.radioButton27.Tag = "10";
+            this.radioButton27.Text = "正常";
+            this.radioButton27.UseVisualStyleBackColor = true;
+            // 
+            // grp9O1A201
+            // 
+            this.grp9O1A201.Controls.Add(this.radioButton35);
+            this.grp9O1A201.Controls.Add(this.radioButton22);
+            this.grp9O1A201.Controls.Add(this.radioButton23);
+            this.grp9O1A201.Controls.Add(this.radioButton24);
+            this.grp9O1A201.Location = new System.Drawing.Point(304, 505);
+            this.grp9O1A201.Name = "grp9O1A201";
+            this.grp9O1A201.Size = new System.Drawing.Size(346, 61);
+            this.grp9O1A201.TabIndex = 45;
+            this.grp9O1A201.TabStop = false;
+            this.grp9O1A201.Text = "狀態";
+            // 
+            // radioButton35
+            // 
+            this.radioButton35.AutoSize = true;
+            this.radioButton35.Location = new System.Drawing.Point(273, 31);
+            this.radioButton35.Name = "radioButton35";
+            this.radioButton35.Size = new System.Drawing.Size(69, 23);
+            this.radioButton35.TabIndex = 9;
+            this.radioButton35.Tag = "00";
+            this.radioButton35.Text = "停機";
+            this.radioButton35.UseVisualStyleBackColor = true;
+            // 
+            // radioButton22
+            // 
+            this.radioButton22.AutoSize = true;
+            this.radioButton22.Location = new System.Drawing.Point(198, 31);
+            this.radioButton22.Name = "radioButton22";
+            this.radioButton22.Size = new System.Drawing.Size(69, 23);
+            this.radioButton22.TabIndex = 8;
+            this.radioButton22.Tag = "20";
+            this.radioButton22.Text = "校正";
+            this.radioButton22.UseVisualStyleBackColor = true;
+            // 
+            // radioButton23
+            // 
+            this.radioButton23.AutoSize = true;
+            this.radioButton23.Location = new System.Drawing.Point(81, 29);
+            this.radioButton23.Name = "radioButton23";
+            this.radioButton23.Size = new System.Drawing.Size(111, 23);
+            this.radioButton23.TabIndex = 7;
+            this.radioButton23.Tag = "31";
+            this.radioButton23.Text = "維修保養";
+            this.radioButton23.UseVisualStyleBackColor = true;
+            // 
+            // radioButton24
+            // 
+            this.radioButton24.AutoSize = true;
+            this.radioButton24.Checked = true;
+            this.radioButton24.Location = new System.Drawing.Point(6, 29);
+            this.radioButton24.Name = "radioButton24";
+            this.radioButton24.Size = new System.Drawing.Size(69, 23);
+            this.radioButton24.TabIndex = 6;
+            this.radioButton24.TabStop = true;
+            this.radioButton24.Tag = "10";
+            this.radioButton24.Text = "正常";
+            this.radioButton24.UseVisualStyleBackColor = true;
+            // 
+            // grp9E4A201
+            // 
+            this.grp9E4A201.Controls.Add(this.radioButton31);
+            this.grp9E4A201.Controls.Add(this.radioButton10);
+            this.grp9E4A201.Controls.Add(this.radioButton11);
+            this.grp9E4A201.Controls.Add(this.radioButton12);
+            this.grp9E4A201.Location = new System.Drawing.Point(304, 237);
+            this.grp9E4A201.Name = "grp9E4A201";
+            this.grp9E4A201.Size = new System.Drawing.Size(346, 61);
+            this.grp9E4A201.TabIndex = 43;
+            this.grp9E4A201.TabStop = false;
+            this.grp9E4A201.Text = "狀態";
+            // 
+            // radioButton31
+            // 
+            this.radioButton31.AutoSize = true;
+            this.radioButton31.Location = new System.Drawing.Point(273, 24);
+            this.radioButton31.Name = "radioButton31";
+            this.radioButton31.Size = new System.Drawing.Size(69, 23);
+            this.radioButton31.TabIndex = 9;
+            this.radioButton31.Tag = "00";
+            this.radioButton31.Text = "停機";
+            this.radioButton31.UseVisualStyleBackColor = true;
+            // 
+            // radioButton10
+            // 
+            this.radioButton10.AutoSize = true;
+            this.radioButton10.Location = new System.Drawing.Point(198, 24);
+            this.radioButton10.Name = "radioButton10";
+            this.radioButton10.Size = new System.Drawing.Size(69, 23);
+            this.radioButton10.TabIndex = 8;
+            this.radioButton10.Tag = "20";
+            this.radioButton10.Text = "校正";
+            this.radioButton10.UseVisualStyleBackColor = true;
+            // 
+            // radioButton11
+            // 
+            this.radioButton11.AutoSize = true;
+            this.radioButton11.Location = new System.Drawing.Point(81, 24);
+            this.radioButton11.Name = "radioButton11";
+            this.radioButton11.Size = new System.Drawing.Size(111, 23);
+            this.radioButton11.TabIndex = 7;
+            this.radioButton11.Tag = "31";
+            this.radioButton11.Text = "維修保養";
+            this.radioButton11.UseVisualStyleBackColor = true;
+            // 
+            // radioButton12
+            // 
+            this.radioButton12.AutoSize = true;
+            this.radioButton12.Checked = true;
+            this.radioButton12.Location = new System.Drawing.Point(6, 24);
+            this.radioButton12.Name = "radioButton12";
+            this.radioButton12.Size = new System.Drawing.Size(69, 23);
+            this.radioButton12.TabIndex = 6;
+            this.radioButton12.TabStop = true;
+            this.radioButton12.Tag = "10";
+            this.radioButton12.Text = "正常";
+            this.radioButton12.UseVisualStyleBackColor = true;
+            // 
+            // grp936P201
+            // 
+            this.grp936P201.Controls.Add(this.radioButton34);
+            this.grp936P201.Controls.Add(this.radioButton19);
+            this.grp936P201.Controls.Add(this.radioButton20);
+            this.grp936P201.Controls.Add(this.radioButton21);
+            this.grp936P201.Location = new System.Drawing.Point(304, 438);
+            this.grp936P201.Name = "grp936P201";
+            this.grp936P201.Size = new System.Drawing.Size(346, 61);
+            this.grp936P201.TabIndex = 46;
+            this.grp936P201.TabStop = false;
+            this.grp936P201.Text = "狀態";
+            // 
+            // radioButton34
+            // 
+            this.radioButton34.AutoSize = true;
+            this.radioButton34.Location = new System.Drawing.Point(273, 29);
+            this.radioButton34.Name = "radioButton34";
+            this.radioButton34.Size = new System.Drawing.Size(69, 23);
+            this.radioButton34.TabIndex = 9;
+            this.radioButton34.Tag = "00";
+            this.radioButton34.Text = "停機";
+            this.radioButton34.UseVisualStyleBackColor = true;
+            // 
+            // radioButton19
+            // 
+            this.radioButton19.AutoSize = true;
+            this.radioButton19.Location = new System.Drawing.Point(198, 29);
+            this.radioButton19.Name = "radioButton19";
+            this.radioButton19.Size = new System.Drawing.Size(69, 23);
+            this.radioButton19.TabIndex = 8;
+            this.radioButton19.Tag = "20";
+            this.radioButton19.Text = "校正";
+            this.radioButton19.UseVisualStyleBackColor = true;
+            // 
+            // radioButton20
+            // 
+            this.radioButton20.AutoSize = true;
+            this.radioButton20.Location = new System.Drawing.Point(81, 29);
+            this.radioButton20.Name = "radioButton20";
+            this.radioButton20.Size = new System.Drawing.Size(111, 23);
+            this.radioButton20.TabIndex = 7;
+            this.radioButton20.Tag = "31";
+            this.radioButton20.Text = "維修保養";
+            this.radioButton20.UseVisualStyleBackColor = true;
+            // 
+            // radioButton21
+            // 
+            this.radioButton21.AutoSize = true;
+            this.radioButton21.Checked = true;
+            this.radioButton21.Location = new System.Drawing.Point(6, 29);
+            this.radioButton21.Name = "radioButton21";
+            this.radioButton21.Size = new System.Drawing.Size(69, 23);
+            this.radioButton21.TabIndex = 6;
+            this.radioButton21.TabStop = true;
+            this.radioButton21.Tag = "10";
+            this.radioButton21.Text = "正常";
+            this.radioButton21.UseVisualStyleBackColor = true;
+            // 
+            // grp9F4E203
+            // 
+            this.grp9F4E203.Controls.Add(this.radioButton30);
+            this.grp9F4E203.Controls.Add(this.radioButton7);
+            this.grp9F4E203.Controls.Add(this.radioButton8);
+            this.grp9F4E203.Controls.Add(this.radioButton9);
+            this.grp9F4E203.Location = new System.Drawing.Point(304, 170);
+            this.grp9F4E203.Name = "grp9F4E203";
+            this.grp9F4E203.Size = new System.Drawing.Size(346, 61);
+            this.grp9F4E203.TabIndex = 43;
+            this.grp9F4E203.TabStop = false;
+            this.grp9F4E203.Tag = "";
+            this.grp9F4E203.Text = "狀態";
+            // 
+            // radioButton30
+            // 
+            this.radioButton30.AutoSize = true;
+            this.radioButton30.Location = new System.Drawing.Point(273, 27);
+            this.radioButton30.Name = "radioButton30";
+            this.radioButton30.Size = new System.Drawing.Size(69, 23);
+            this.radioButton30.TabIndex = 6;
+            this.radioButton30.Tag = "00";
+            this.radioButton30.Text = "停機";
+            this.radioButton30.UseVisualStyleBackColor = true;
+            // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Location = new System.Drawing.Point(198, 27);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(69, 23);
+            this.radioButton7.TabIndex = 5;
+            this.radioButton7.Tag = "20";
+            this.radioButton7.Text = "校正";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            // 
+            // radioButton8
+            // 
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.Location = new System.Drawing.Point(81, 27);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(111, 23);
+            this.radioButton8.TabIndex = 4;
+            this.radioButton8.Tag = "31";
+            this.radioButton8.Text = "維修保養";
+            this.radioButton8.UseVisualStyleBackColor = true;
+            // 
+            // radioButton9
+            // 
+            this.radioButton9.AutoSize = true;
+            this.radioButton9.Checked = true;
+            this.radioButton9.Location = new System.Drawing.Point(6, 27);
+            this.radioButton9.Name = "radioButton9";
+            this.radioButton9.Size = new System.Drawing.Size(69, 23);
+            this.radioButton9.TabIndex = 3;
+            this.radioButton9.TabStop = true;
+            this.radioButton9.Tag = "10";
+            this.radioButton9.Text = "正常";
+            this.radioButton9.UseVisualStyleBackColor = true;
+            // 
+            // grp937P201
+            // 
+            this.grp937P201.Controls.Add(this.radioButton33);
+            this.grp937P201.Controls.Add(this.radioButton16);
+            this.grp937P201.Controls.Add(this.radioButton17);
+            this.grp937P201.Controls.Add(this.radioButton18);
+            this.grp937P201.Location = new System.Drawing.Point(304, 371);
+            this.grp937P201.Name = "grp937P201";
+            this.grp937P201.Size = new System.Drawing.Size(346, 61);
+            this.grp937P201.TabIndex = 47;
+            this.grp937P201.TabStop = false;
+            this.grp937P201.Text = "狀態";
+            // 
+            // radioButton33
+            // 
+            this.radioButton33.AutoSize = true;
+            this.radioButton33.Location = new System.Drawing.Point(273, 27);
+            this.radioButton33.Name = "radioButton33";
+            this.radioButton33.Size = new System.Drawing.Size(69, 23);
+            this.radioButton33.TabIndex = 9;
+            this.radioButton33.Tag = "00";
+            this.radioButton33.Text = "停機";
+            this.radioButton33.UseVisualStyleBackColor = true;
+            // 
+            // radioButton16
+            // 
+            this.radioButton16.AutoSize = true;
+            this.radioButton16.Location = new System.Drawing.Point(198, 27);
+            this.radioButton16.Name = "radioButton16";
+            this.radioButton16.Size = new System.Drawing.Size(69, 23);
+            this.radioButton16.TabIndex = 8;
+            this.radioButton16.Tag = "20";
+            this.radioButton16.Text = "校正";
+            this.radioButton16.UseVisualStyleBackColor = true;
+            // 
+            // radioButton17
+            // 
+            this.radioButton17.AutoSize = true;
+            this.radioButton17.Location = new System.Drawing.Point(81, 27);
+            this.radioButton17.Name = "radioButton17";
+            this.radioButton17.Size = new System.Drawing.Size(111, 23);
+            this.radioButton17.TabIndex = 7;
+            this.radioButton17.Tag = "31";
+            this.radioButton17.Text = "維修保養";
+            this.radioButton17.UseVisualStyleBackColor = true;
+            // 
+            // radioButton18
+            // 
+            this.radioButton18.AutoSize = true;
+            this.radioButton18.Checked = true;
+            this.radioButton18.Location = new System.Drawing.Point(6, 29);
+            this.radioButton18.Name = "radioButton18";
+            this.radioButton18.Size = new System.Drawing.Size(69, 23);
+            this.radioButton18.TabIndex = 6;
+            this.radioButton18.TabStop = true;
+            this.radioButton18.Tag = "10";
+            this.radioButton18.Text = "正常";
+            this.radioButton18.UseVisualStyleBackColor = true;
+            // 
+            // grp9F4E201
+            // 
+            this.grp9F4E201.Controls.Add(this.radioButton29);
+            this.grp9F4E201.Controls.Add(this.radioButton4);
+            this.grp9F4E201.Controls.Add(this.radioButton5);
+            this.grp9F4E201.Controls.Add(this.radioButton6);
+            this.grp9F4E201.Location = new System.Drawing.Point(304, 103);
+            this.grp9F4E201.Name = "grp9F4E201";
+            this.grp9F4E201.Size = new System.Drawing.Size(346, 61);
+            this.grp9F4E201.TabIndex = 43;
+            this.grp9F4E201.TabStop = false;
+            this.grp9F4E201.Tag = "";
+            this.grp9F4E201.Text = "狀態";
+            // 
+            // radioButton29
+            // 
+            this.radioButton29.AutoSize = true;
+            this.radioButton29.Location = new System.Drawing.Point(273, 29);
+            this.radioButton29.Name = "radioButton29";
+            this.radioButton29.Size = new System.Drawing.Size(69, 23);
+            this.radioButton29.TabIndex = 6;
+            this.radioButton29.Tag = "00";
+            this.radioButton29.Text = "停機";
+            this.radioButton29.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(198, 29);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(69, 23);
+            this.radioButton4.TabIndex = 5;
+            this.radioButton4.Tag = "20";
+            this.radioButton4.Text = "校正";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(81, 29);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(111, 23);
+            this.radioButton5.TabIndex = 4;
+            this.radioButton5.Tag = "31";
+            this.radioButton5.Text = "維修保養";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // radioButton6
+            // 
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Checked = true;
+            this.radioButton6.Location = new System.Drawing.Point(6, 29);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(69, 23);
+            this.radioButton6.TabIndex = 3;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.Tag = "10";
+            this.radioButton6.Text = "正常";
+            this.radioButton6.UseVisualStyleBackColor = true;
+            // 
+            // grp9D1A201
+            // 
+            this.grp9D1A201.Controls.Add(this.radioButton32);
+            this.grp9D1A201.Controls.Add(this.radioButton13);
+            this.grp9D1A201.Controls.Add(this.radioButton14);
+            this.grp9D1A201.Controls.Add(this.radioButton15);
+            this.grp9D1A201.Location = new System.Drawing.Point(304, 304);
+            this.grp9D1A201.Name = "grp9D1A201";
+            this.grp9D1A201.Size = new System.Drawing.Size(346, 61);
+            this.grp9D1A201.TabIndex = 44;
+            this.grp9D1A201.TabStop = false;
+            this.grp9D1A201.Text = "狀態";
+            // 
+            // radioButton32
+            // 
+            this.radioButton32.AutoSize = true;
+            this.radioButton32.Location = new System.Drawing.Point(273, 25);
+            this.radioButton32.Name = "radioButton32";
+            this.radioButton32.Size = new System.Drawing.Size(69, 23);
+            this.radioButton32.TabIndex = 9;
+            this.radioButton32.Tag = "00";
+            this.radioButton32.Text = "停機";
+            this.radioButton32.UseVisualStyleBackColor = true;
+            // 
+            // radioButton13
+            // 
+            this.radioButton13.AutoSize = true;
+            this.radioButton13.Location = new System.Drawing.Point(198, 25);
+            this.radioButton13.Name = "radioButton13";
+            this.radioButton13.Size = new System.Drawing.Size(69, 23);
+            this.radioButton13.TabIndex = 8;
+            this.radioButton13.Tag = "20";
+            this.radioButton13.Text = "校正";
+            this.radioButton13.UseVisualStyleBackColor = true;
+            // 
+            // radioButton14
+            // 
+            this.radioButton14.AutoSize = true;
+            this.radioButton14.Location = new System.Drawing.Point(81, 25);
+            this.radioButton14.Name = "radioButton14";
+            this.radioButton14.Size = new System.Drawing.Size(111, 23);
+            this.radioButton14.TabIndex = 7;
+            this.radioButton14.Tag = "31";
+            this.radioButton14.Text = "維修保養";
+            this.radioButton14.UseVisualStyleBackColor = true;
+            // 
+            // radioButton15
+            // 
+            this.radioButton15.AutoSize = true;
+            this.radioButton15.Checked = true;
+            this.radioButton15.Location = new System.Drawing.Point(6, 27);
+            this.radioButton15.Name = "radioButton15";
+            this.radioButton15.Size = new System.Drawing.Size(69, 23);
+            this.radioButton15.TabIndex = 6;
+            this.radioButton15.TabStop = true;
+            this.radioButton15.Tag = "10";
+            this.radioButton15.Text = "正常";
+            this.radioButton15.UseVisualStyleBackColor = true;
+            // 
+            // grp9F3E201
+            // 
+            this.grp9F3E201.Controls.Add(this.radioButton28);
+            this.grp9F3E201.Controls.Add(this.radioButton3);
+            this.grp9F3E201.Controls.Add(this.radioButton2);
+            this.grp9F3E201.Controls.Add(this.radioButton1);
+            this.grp9F3E201.Location = new System.Drawing.Point(304, 36);
+            this.grp9F3E201.Name = "grp9F3E201";
+            this.grp9F3E201.Size = new System.Drawing.Size(346, 61);
+            this.grp9F3E201.TabIndex = 42;
+            this.grp9F3E201.TabStop = false;
+            this.grp9F3E201.Tag = "";
+            this.grp9F3E201.Text = "狀態";
+            // 
+            // radioButton28
+            // 
+            this.radioButton28.AutoSize = true;
+            this.radioButton28.Location = new System.Drawing.Point(273, 29);
+            this.radioButton28.Name = "radioButton28";
+            this.radioButton28.Size = new System.Drawing.Size(69, 23);
+            this.radioButton28.TabIndex = 3;
+            this.radioButton28.Tag = "00";
+            this.radioButton28.Text = "停機";
+            this.radioButton28.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(198, 29);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(69, 23);
+            this.radioButton3.TabIndex = 2;
+            this.radioButton3.Tag = "20";
+            this.radioButton3.Text = "校正";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(81, 29);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(111, 23);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.Tag = "31";
+            this.radioButton2.Text = "維修保養";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(6, 29);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(69, 23);
+            this.radioButton1.TabIndex = 0;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Tag = "10";
+            this.radioButton1.Text = "正常";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(64, 550);
+            this.label51.Location = new System.Drawing.Point(65, 605);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(171, 19);
             this.label51.TabIndex = 40;
             this.label51.Text = "948P201(風量計)";
             // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(340, 485);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(105, 31);
-            this.button7.TabIndex = 39;
-            this.button7.Text = "正常";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(64, 491);
+            this.label49.Location = new System.Drawing.Point(65, 536);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(171, 19);
             this.label49.TabIndex = 38;
             this.label49.Text = "9O1A201(活性碳)";
             // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(340, 426);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(105, 31);
-            this.button8.TabIndex = 37;
-            this.button8.Text = "正常";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(64, 432);
+            this.label50.Location = new System.Drawing.Point(64, 467);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(193, 19);
             this.label50.TabIndex = 36;
             this.label50.Text = "936P201_%(含氧量)";
             // 
-            // button5
+            // txt937P201_EL
             // 
-            this.button5.Location = new System.Drawing.Point(340, 367);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(105, 31);
-            this.button5.TabIndex = 35;
-            this.button5.Text = "正常";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // textBox17
-            // 
-            this.textBox17.Location = new System.Drawing.Point(1155, 370);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(145, 30);
-            this.textBox17.TabIndex = 34;
+            this.txt937P201_EL.Location = new System.Drawing.Point(1425, 399);
+            this.txt937P201_EL.Name = "txt937P201_EL";
+            this.txt937P201_EL.Size = new System.Drawing.Size(145, 30);
+            this.txt937P201_EL.TabIndex = 34;
             // 
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(1055, 373);
+            this.label41.Location = new System.Drawing.Point(1325, 402);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(94, 19);
             this.label41.TabIndex = 33;
             this.label41.Text = "異常值EL";
             // 
-            // textBox18
+            // txt937P201_LL
             // 
-            this.textBox18.Location = new System.Drawing.Point(870, 370);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(145, 30);
-            this.textBox18.TabIndex = 32;
+            this.txt937P201_LL.Location = new System.Drawing.Point(1140, 399);
+            this.txt937P201_LL.Name = "txt937P201_LL";
+            this.txt937P201_LL.Size = new System.Drawing.Size(145, 30);
+            this.txt937P201_LL.TabIndex = 32;
             // 
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(770, 373);
+            this.label42.Location = new System.Drawing.Point(1040, 402);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(94, 19);
             this.label42.TabIndex = 31;
             this.label42.Text = "下限值LL";
             // 
-            // textBox19
+            // txt937P201_UL
             // 
-            this.textBox19.Location = new System.Drawing.Point(585, 370);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(145, 30);
-            this.textBox19.TabIndex = 30;
+            this.txt937P201_UL.Location = new System.Drawing.Point(855, 399);
+            this.txt937P201_UL.Name = "txt937P201_UL";
+            this.txt937P201_UL.Size = new System.Drawing.Size(145, 30);
+            this.txt937P201_UL.TabIndex = 30;
             // 
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(485, 373);
+            this.label43.Location = new System.Drawing.Point(755, 402);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(94, 19);
             this.label43.TabIndex = 29;
@@ -2034,64 +2578,55 @@ namespace YunYan
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(64, 373);
+            this.label44.Location = new System.Drawing.Point(65, 402);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(236, 19);
             this.label44.TabIndex = 28;
             this.label44.Text = "937P201_PPM(一氧化碳)";
             // 
-            // button6
+            // txt9D1A201_EL
             // 
-            this.button6.Location = new System.Drawing.Point(340, 308);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(105, 31);
-            this.button6.TabIndex = 27;
-            this.button6.Text = "正常";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Location = new System.Drawing.Point(1155, 311);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(145, 30);
-            this.textBox20.TabIndex = 26;
+            this.txt9D1A201_EL.Location = new System.Drawing.Point(1425, 332);
+            this.txt9D1A201_EL.Name = "txt9D1A201_EL";
+            this.txt9D1A201_EL.Size = new System.Drawing.Size(145, 30);
+            this.txt9D1A201_EL.TabIndex = 26;
             // 
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(1055, 314);
+            this.label45.Location = new System.Drawing.Point(1325, 335);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(94, 19);
             this.label45.TabIndex = 25;
             this.label45.Text = "異常值EL";
             // 
-            // textBox21
+            // txt9D1A201_LL
             // 
-            this.textBox21.Location = new System.Drawing.Point(870, 311);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(145, 30);
-            this.textBox21.TabIndex = 24;
+            this.txt9D1A201_LL.Location = new System.Drawing.Point(1140, 332);
+            this.txt9D1A201_LL.Name = "txt9D1A201_LL";
+            this.txt9D1A201_LL.Size = new System.Drawing.Size(145, 30);
+            this.txt9D1A201_LL.TabIndex = 24;
             // 
             // label46
             // 
             this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(770, 314);
+            this.label46.Location = new System.Drawing.Point(1040, 335);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(94, 19);
             this.label46.TabIndex = 23;
             this.label46.Text = "下限值LL";
             // 
-            // textBox22
+            // txt9D1A201_UL
             // 
-            this.textBox22.Location = new System.Drawing.Point(585, 311);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(145, 30);
-            this.textBox22.TabIndex = 22;
+            this.txt9D1A201_UL.Location = new System.Drawing.Point(855, 332);
+            this.txt9D1A201_UL.Name = "txt9D1A201_UL";
+            this.txt9D1A201_UL.Size = new System.Drawing.Size(145, 30);
+            this.txt9D1A201_UL.TabIndex = 22;
             // 
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(485, 314);
+            this.label47.Location = new System.Drawing.Point(755, 335);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(94, 19);
             this.label47.TabIndex = 21;
@@ -2100,82 +2635,64 @@ namespace YunYan
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(64, 314);
+            this.label48.Location = new System.Drawing.Point(65, 333);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(216, 19);
             this.label48.TabIndex = 20;
             this.label48.Text = "9D1A201_mmH2O(差壓)";
             // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(340, 131);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(105, 31);
-            this.button4.TabIndex = 19;
-            this.button4.Text = "正常";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(64, 137);
+            this.label40.Location = new System.Drawing.Point(64, 136);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(213, 19);
             this.label40.TabIndex = 18;
             this.label40.Text = "9F4E201(氣化爐出口)";
             // 
-            // button3
+            // txt9E4A201_EL
             // 
-            this.button3.Location = new System.Drawing.Point(340, 249);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(105, 31);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "正常";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(1155, 252);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(145, 30);
-            this.textBox14.TabIndex = 16;
+            this.txt9E4A201_EL.Location = new System.Drawing.Point(1425, 265);
+            this.txt9E4A201_EL.Name = "txt9E4A201_EL";
+            this.txt9E4A201_EL.Size = new System.Drawing.Size(145, 30);
+            this.txt9E4A201_EL.TabIndex = 16;
             // 
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(1055, 255);
+            this.label36.Location = new System.Drawing.Point(1325, 268);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(94, 19);
             this.label36.TabIndex = 15;
             this.label36.Text = "異常值EL";
             // 
-            // textBox15
+            // txt9E4A201_LL
             // 
-            this.textBox15.Location = new System.Drawing.Point(870, 252);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(145, 30);
-            this.textBox15.TabIndex = 14;
+            this.txt9E4A201_LL.Location = new System.Drawing.Point(1140, 265);
+            this.txt9E4A201_LL.Name = "txt9E4A201_LL";
+            this.txt9E4A201_LL.Size = new System.Drawing.Size(145, 30);
+            this.txt9E4A201_LL.TabIndex = 14;
             // 
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(770, 255);
+            this.label37.Location = new System.Drawing.Point(1040, 268);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(94, 19);
             this.label37.TabIndex = 13;
             this.label37.Text = "下限值LL";
             // 
-            // textBox16
+            // txt9E4A201_UL
             // 
-            this.textBox16.Location = new System.Drawing.Point(585, 252);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(145, 30);
-            this.textBox16.TabIndex = 12;
+            this.txt9E4A201_UL.Location = new System.Drawing.Point(855, 265);
+            this.txt9E4A201_UL.Name = "txt9E4A201_UL";
+            this.txt9E4A201_UL.Size = new System.Drawing.Size(145, 30);
+            this.txt9E4A201_UL.TabIndex = 12;
             // 
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(485, 255);
+            this.label38.Location = new System.Drawing.Point(755, 268);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(94, 19);
             this.label38.TabIndex = 11;
@@ -2184,73 +2701,55 @@ namespace YunYan
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(64, 255);
+            this.label39.Location = new System.Drawing.Point(65, 263);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(192, 19);
             this.label39.TabIndex = 10;
-            this.label39.Text = "9E4A203(袋式入口)";
+            this.label39.Text = "9E4A201(袋式入口)";
             // 
-            // button2
+            // txt9F4E203_EL
             // 
-            this.button2.Location = new System.Drawing.Point(340, 72);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(105, 31);
-            this.button2.TabIndex = 9;
-            this.button2.Text = "正常";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(340, 190);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(105, 31);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "正常";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(1155, 193);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(145, 30);
-            this.textBox13.TabIndex = 7;
+            this.txt9F4E203_EL.Location = new System.Drawing.Point(1425, 198);
+            this.txt9F4E203_EL.Name = "txt9F4E203_EL";
+            this.txt9F4E203_EL.Size = new System.Drawing.Size(145, 30);
+            this.txt9F4E203_EL.TabIndex = 7;
             // 
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(1055, 196);
+            this.label35.Location = new System.Drawing.Point(1325, 201);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(94, 19);
             this.label35.TabIndex = 6;
             this.label35.Text = "異常值EL";
             // 
-            // textBox12
+            // txt9F4E203_LL
             // 
-            this.textBox12.Location = new System.Drawing.Point(870, 193);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(145, 30);
-            this.textBox12.TabIndex = 5;
+            this.txt9F4E203_LL.Location = new System.Drawing.Point(1140, 198);
+            this.txt9F4E203_LL.Name = "txt9F4E203_LL";
+            this.txt9F4E203_LL.Size = new System.Drawing.Size(145, 30);
+            this.txt9F4E203_LL.TabIndex = 5;
             // 
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(770, 196);
+            this.label34.Location = new System.Drawing.Point(1040, 201);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(94, 19);
             this.label34.TabIndex = 4;
             this.label34.Text = "下限值LL";
             // 
-            // textBox11
+            // txt9F4E203_UL
             // 
-            this.textBox11.Location = new System.Drawing.Point(585, 193);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(145, 30);
-            this.textBox11.TabIndex = 3;
+            this.txt9F4E203_UL.Location = new System.Drawing.Point(855, 196);
+            this.txt9F4E203_UL.Name = "txt9F4E203_UL";
+            this.txt9F4E203_UL.Size = new System.Drawing.Size(145, 30);
+            this.txt9F4E203_UL.TabIndex = 3;
             // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(485, 196);
+            this.label33.Location = new System.Drawing.Point(755, 201);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(94, 19);
             this.label33.TabIndex = 2;
@@ -2259,7 +2758,7 @@ namespace YunYan
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(64, 196);
+            this.label32.Location = new System.Drawing.Point(64, 201);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(213, 19);
             this.label32.TabIndex = 1;
@@ -2268,7 +2767,7 @@ namespace YunYan
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(64, 78);
+            this.label31.Location = new System.Drawing.Point(64, 67);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(192, 19);
             this.label31.TabIndex = 0;
@@ -2594,6 +3093,18 @@ namespace YunYan
             this.label52.TabIndex = 0;
             this.label52.Text = "Report次數";
             // 
+            // tmrGetData
+            // 
+            this.tmrGetData.Enabled = true;
+            this.tmrGetData.Interval = 5000;
+            this.tmrGetData.Tick += new System.EventHandler(this.tmrGetData_Tick);
+            // 
+            // tmrUpdate
+            // 
+            this.tmrUpdate.Enabled = true;
+            this.tmrUpdate.Interval = 1000;
+            this.tmrUpdate.Tick += new System.EventHandler(this.tmrUpdate_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
@@ -2603,7 +3114,7 @@ namespace YunYan
             this.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "溫度監控系統 v0.0.1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nud9F3E201_divisor)).EndInit();
@@ -2630,8 +3141,26 @@ namespace YunYan
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
+            this.tpStatus.ResumeLayout(false);
+            this.tpStatus.PerformLayout();
+            this.grp948P201.ResumeLayout(false);
+            this.grp948P201.PerformLayout();
+            this.grp9O1A201.ResumeLayout(false);
+            this.grp9O1A201.PerformLayout();
+            this.grp9E4A201.ResumeLayout(false);
+            this.grp9E4A201.PerformLayout();
+            this.grp936P201.ResumeLayout(false);
+            this.grp936P201.PerformLayout();
+            this.grp9F4E203.ResumeLayout(false);
+            this.grp9F4E203.PerformLayout();
+            this.grp937P201.ResumeLayout(false);
+            this.grp937P201.PerformLayout();
+            this.grp9F4E201.ResumeLayout(false);
+            this.grp9F4E201.PerformLayout();
+            this.grp9D1A201.ResumeLayout(false);
+            this.grp9D1A201.PerformLayout();
+            this.grp9F3E201.ResumeLayout(false);
+            this.grp9F3E201.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             this.tabPage14.ResumeLayout(false);
@@ -2658,10 +3187,8 @@ namespace YunYan
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txt9O1A201;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Timer tmrData;
         private System.Windows.Forms.TextBox txt948P201;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Timer tmrModbus;
         private System.Windows.Forms.TextBox txt948P201_sc;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox txt9O1A201_sc;
@@ -2699,7 +3226,6 @@ namespace YunYan
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TextBox txtSavePath;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button btnRestart;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tpConversion;
         private System.Windows.Forms.TabPage tabPage2;
@@ -2707,17 +3233,15 @@ namespace YunYan
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tpStatus;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox txt9F4E203_EL;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txt9F4E203_LL;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txt9F4E203_UL;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label31;
@@ -2739,36 +3263,29 @@ namespace YunYan
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label label51;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Label label49;
-        private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.TextBox textBox17;
+        private System.Windows.Forms.TextBox txt937P201_EL;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox txt937P201_LL;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox txt937P201_UL;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox textBox20;
+        private System.Windows.Forms.TextBox txt9D1A201_EL;
         private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox txt9D1A201_LL;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.TextBox txt9D1A201_UL;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Label label40;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox txt9E4A201_EL;
         private System.Windows.Forms.Label label36;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox txt9E4A201_LL;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox txt9E4A201_UL;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.TabPage tabPage10;
@@ -2849,6 +3366,55 @@ namespace YunYan
         private System.Windows.Forms.Label lblPI_600;
         private System.Windows.Forms.Label lblTI_600_1;
         private System.Windows.Forms.Label lbl9O1A201;
+        private System.Windows.Forms.GroupBox grp948P201;
+        private System.Windows.Forms.GroupBox grp9O1A201;
+        private System.Windows.Forms.GroupBox grp9E4A201;
+        private System.Windows.Forms.GroupBox grp936P201;
+        private System.Windows.Forms.GroupBox grp9F4E203;
+        private System.Windows.Forms.GroupBox grp937P201;
+        private System.Windows.Forms.GroupBox grp9F4E201;
+        private System.Windows.Forms.GroupBox grp9D1A201;
+        private System.Windows.Forms.GroupBox grp9F3E201;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Button btnSave_status;
+        private System.Windows.Forms.RadioButton radioButton27;
+        private System.Windows.Forms.RadioButton radioButton24;
+        private System.Windows.Forms.RadioButton radioButton12;
+        private System.Windows.Forms.RadioButton radioButton21;
+        private System.Windows.Forms.RadioButton radioButton9;
+        private System.Windows.Forms.RadioButton radioButton18;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.RadioButton radioButton15;
+        private System.Windows.Forms.RadioButton radioButton25;
+        private System.Windows.Forms.RadioButton radioButton26;
+        private System.Windows.Forms.RadioButton radioButton22;
+        private System.Windows.Forms.RadioButton radioButton23;
+        private System.Windows.Forms.RadioButton radioButton10;
+        private System.Windows.Forms.RadioButton radioButton11;
+        private System.Windows.Forms.RadioButton radioButton19;
+        private System.Windows.Forms.RadioButton radioButton20;
+        private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.RadioButton radioButton16;
+        private System.Windows.Forms.RadioButton radioButton17;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton radioButton13;
+        private System.Windows.Forms.RadioButton radioButton14;
+        private System.Windows.Forms.Button btnRestart;
+        private System.Windows.Forms.Timer tmrGetData;
+        private System.Windows.Forms.Timer tmrUpdate;
+        private System.Windows.Forms.RadioButton radioButton36;
+        private System.Windows.Forms.RadioButton radioButton35;
+        private System.Windows.Forms.RadioButton radioButton31;
+        private System.Windows.Forms.RadioButton radioButton34;
+        private System.Windows.Forms.RadioButton radioButton30;
+        private System.Windows.Forms.RadioButton radioButton33;
+        private System.Windows.Forms.RadioButton radioButton29;
+        private System.Windows.Forms.RadioButton radioButton32;
+        private System.Windows.Forms.RadioButton radioButton28;
     }
 }
 

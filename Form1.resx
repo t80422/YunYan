@@ -117,17 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="tmrData.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="tmrModbus.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>117, 17</value>
-  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="tabPage2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAB4AAAAO0CAYAAABEBituAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wAAADsABataJCQAA/7JJREFUeF7s/Xd0HMeB7n/fu+vdvbter722ZcuSbGVZOeecMyVRkRRFMWcx5wgG
+        vAAADrwBlbxySQAA/7JJREFUeF7s/Xd0HMeB7n/fu+vdvbter722ZcuSbGVZOeecMyVRkRRFMWcx5wgG
         EAQJgAkgAkkARM455zAY5JyByQOQIqlob9573/N9e4aSLFKQLMmW18bv+eNzSExXd1VXdeOQ55mq+l/1
         o3ZEREREREREREREREREROQvV62ln/LOFhQAi4iIiIiIiIiIiIiIiIj8hVMALCIiIiIiIiIiIiIiIiIy
         TigAFhEREREREREREREREREZJxQAi4iIiIiIiIiIiIiIiIiMEwqARURERERERERERERERETGCQXAIiIi
@@ -5901,7 +5895,7 @@
   <data name="tabPage1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAB4AAAAO0CAYAAABEBituAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAA/7JJREFUeF7s3XV81Ffe/v9doFSo29Z96+5CS1sqUKBAoRR3d3d3twhJSIi7kRB3
+        vAAADrwBlbxySQAA/7JJREFUeF7s3XV81Ffe/v9doFSo29Z96+5CS1sqUKBAoRR3d3d3twhJSIi7kRB3
         z8TdZzIzSYDadu3ee2/53r/XbyaUXWhDSwVK6fXH8wHMnM855yMJSa68z/ldXlszIiIiIiIiIiIiIiIi
         IiLy65XVVEtKeREKgEVEREREREREREREREREfuUUAIuIiIiIiIiIiIiIiIiIXCQUAIuIiIiIiIiIiIiI
         iIiIXCQUAIuIiIiIiIiIiIiIiIiIXCQUAIuIiIiIiMhviqHVTF6LlZyWNnJbLR22kd+eAquFfGsLOZZj
@@ -11707,7 +11701,7 @@
   <data name="tabPage3.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAB4AAAAO0CAYAAABEBituAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAA/7JJREFUeF7s3Xd8VGWiPvDf7r13927vumvvrr1gQ0QsgBVBBAQRQYr03ntNQkto
+        vAAADrwBlbxySQAA/7JJREFUeF7s3Xd8VGWiPvDf7r13927vumvvrr1gQ0QsgBVBBAQRQYr03ntNQkto
         6Z303ntvk2mZmcxkSqa3hIQqIHa9z++cQRAkKiAqZJ8/vp8k57xtzjmTEJ687/v/mjscICIiIiIiIiIi
         IiIiIiKiK1eD1YiqViUYABMRERERERERERERERERXeEYABMRERERERERERERERER9RIMgImIiIiIiIiI
         iIiIiIiIegkGwEREREREREREREREREREvQQDYCIiIiIiIiIiIiIiIiKiXoIBMBERERERERERERERERFR
@@ -14699,7 +14693,7 @@
   <data name="tabPage4.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAB4AAAAO0CAYAAABEBituAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAA/7JJREFUeF7s/XWUVVei7n/f28du9+nudFqSdNyNuLuRECCQQAjBHYIEd3cpoKAK
+        vAAADrwBlbxySQAA/7JJREFUeF7s/XWUVVei7n/f28du9+nudFqSdNyNuLuRECCQQAjBHYIEd3cpoKAK
         K4pySih3d3d32V4CkfY+9/zuOXe84/uuVSRpSCoe+qYrzx+fQaX22mvONdeca9TOs+ec/6OiooKyHhtl
         vXYREREREREREREREREREfkHVGRpI6ehGgXAIiIiIiIiIiIiIiIiIiL/4BQAi4iIiIiIiIiIiIiIiIgM
         EgqARUREREREREREREREREQGCQXAIiIiIiIiIiIiIiIiIiKDhAJgEREREREREREREREREZFBQgGwiIiI
@@ -20149,7 +20143,7 @@
   <data name="tabPage5.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAB4AAAAO1CAYAAACPWvjLAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAA/7JJREFUeF7s3Xd4lNeBPuxssptsnOY0x05c4rjG3cbGDWPj3rCpNr333kH0IiEJ
+        vAAADrwBlbxySQAA/7JJREFUeF7s3Xd4lNeBPuxssptsnOY0x05c4rjG3cbGDWPj3rCpNr333kH0IiEJ
         CUmoV9R7773MjKbPSNN700iAa8q27Ca/63u+dwaDwQgMxjaCPH/cl6R3TnsLnpEfnXO+o1AoIBt0Qzbk
         ISIiIiIiIiIiIiIiIiKiq5DYaUGHTg0GwEREREREREREREREREREVzkGwERERERERERERERERERE1wgG
         wERERERERERERERERERE1wgGwERERERERERERERERERE1wgGwERERERERET0T0/h90ExMACZbxAS33FI
@@ -24979,4 +24973,10 @@
         AAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="tmrGetData.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="tmrUpdate.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>137, 17</value>
+  </metadata>
 </root>

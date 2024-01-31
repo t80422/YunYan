@@ -48,6 +48,9 @@ namespace YunYan
         private double tI_900;
         private double tI_380;
         private double wind;
+        private double aDAM_6017_05;
+        private double aDAM_6017_03;
+        private double aC_001;
 
         private struct Correction
         {
@@ -66,7 +69,7 @@ namespace YunYan
                 add = cor.Addition;
             }
 
-            return (value / div) + add;
+            return Math.Round(((value / div) + add), 3);
         }
 
         public ModbusData(string[] corrections)
@@ -123,7 +126,7 @@ namespace YunYan
         public double CC_163_rpm { get; set; }
         public double TI_160_1 { get => Calculate("TI_160_1", tI_160_1); set => tI_160_1 = value; }
         public double TI_160_2 { get => Calculate("TI_160_2", tI_160_2); set => tI_160_2 = value; }
-        public double TI_380 { get =>Calculate("TI_380", tI_380); set => tI_380 = value; }
+        public double TI_380 { get => Calculate("TI_380", tI_380); set => tI_380 = value; }
         public double PI_420 { get => Calculate("PI_420", pI_420); set => pI_420 = value; }
         public double FDF_360_HZ { get; set; }
         public double FDF_360_rpm { get; set; }
@@ -174,6 +177,9 @@ namespace YunYan
         public double P201 { get => Calculate("P201", p201); set => p201 = value; }
         public double _937P201 { get => Calculate("937P201", _937P2011); set => _937P2011 = value; }
         public double TI_900 { get => Calculate("TI_900", tI_900); set => tI_900 = value; }
-        public double Wind { get =>Calculate("wind", wind); set => wind = value; }
+        public double Wind { get => Calculate("wind", wind); set => wind = value; }
+        public double ADAM_6017_05 { get => Calculate("ADAM_6017_05", aDAM_6017_05); set => aDAM_6017_05 = value; }
+        public double ADAM_6017_03 { get => Calculate("ADAM_6017_03", aDAM_6017_03); set => aDAM_6017_03 = value; }
+        public double AC_001 { get => Calculate("AC_001", aC_001); set => aC_001 = value; }
     }
 }

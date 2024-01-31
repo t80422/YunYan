@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using YunYan.Models;
 
 namespace YunYan
 {
@@ -12,7 +12,7 @@ namespace YunYan
         private string _divisoFileName = "_divisor.set";
         private string _savePathName = "SavePath.set";
         private ReportExporter _export = new ReportExporter();
-        private int _timerCount = 0;
+        private int _tempMinute;
 
         private NModbus _modbus_15_1;
         private NModbus _modbus_15_2;
@@ -42,189 +42,81 @@ namespace YunYan
             _modbus_15_2 = new NModbus("192.168.0.15", 502, 2);
         }
 
-        private void tmrData_Tick(object sender, EventArgs e)
-        {
-            //ShowData();
-
-            _timerCount += 5;
-
-            try
-            {
-                //每分鐘存到資料庫
-                if (_timerCount == 60)
-                {
-                    using (MySQL sql = new MySQL())
-                    {
-                        sql.InsertTable("sensor_data", GetData());
-                    }
-
-                    _timerCount = 0;
-                }
-
-                //每五分鐘輸出檔案
-                if (DateTime.Now.Minute % 5 == 0 && !string.IsNullOrEmpty(txtSavePath.Text))
-                {
-                    _export.SavePath = txtSavePath.Text;
-                    _export.FetchAndProcessData(DateTime.Now);
-                }
-            }
-            catch (Exception ex)
-            {
-                tpConversion.BackColor = Color.Red;
-                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
-                tmrData.Enabled = false;
-            }
-        }
-
-        //private void ShowData()
-        //{
-        //    //會有一次有資料一次沒資料的情況
-        //    do
-        //    {
-        //        GetNModbusData();
-        //    } while (txt9D1A201.Text == "0.00");
-
-        //}
-
-        //private void GetNModbusData()
-        //{
-        //    var nModbus15 = new NModbus("192.168.0.15", 502);
-        //    var uid15_1 = nModbus15.GetData(1);
-        //    var uid15_2 = nModbus15.GetData(2);
-
-        //    txt9F3E201_sc.Text = uid15_1[26].ToString();
-        //    txt9F4E201_sc.Text = uid15_1[28].ToString();
-        //    txt9F4E203_sc.Text = uid15_2[0].ToString();
-        //    txt9E4A201_sc.Text = uid15_2[16].ToString();
-
-        //    nModbus15.Dispose();
-
-        //    var nModbus10 = new NModbus("192.168.0.10", 502);
-        //    var uid10 = nModbus10.GetData(1);
-
-        //    txt9D1A201_sc.Text = uid10[4].ToString();
-        //    txt936P201_sc.Text = uid10[2].ToString();
-        //    txt9O1A201_sc.Text = uid10[5].ToString();
-        //    txt948P201_sc.Text = uid10[6].ToString();
-
-        //    nModbus10.Dispose();
-        //}
-
-        private Dictionary<string, object> GetData()
-        {
-            var dicData = new Dictionary<string, object>
-            {
-                { "sd_time",DateTime.Now},
-                { "sd_9F3E201", txt9F3E201.Text},
-                { "sd_9F4E201", txt9F4E201.Text},
-                { "sd_9F4E203", txt9F4E203.Text},
-                { "sd_9E4A201", txt9E4A201.Text},
-                { "sd_9D1A201", txt9D1A201.Text},
-                { "sd_937P201", txt937P201.Text},
-                { "sd_936P201", txt936P201.Text},
-                { "sd_9O1A201", txt9O1A201.Text},
-                { "sd_948P201", txt948P201.Text},
-                { "sd_9F3E201_sc", txt9F3E201_sc.Text},
-                { "sd_9F4E201_sc", txt9F4E201_sc.Text},
-                { "sd_9F4E203_sc", txt9F4E203_sc.Text},
-                { "sd_9E4A201_sc", txt9E4A201_sc.Text},
-                { "sd_9D1A201_sc", txt9D1A201_sc.Text},
-                { "sd_936P201_sc", txt936P201_sc.Text},
-                { "sd_9O1A201_sc", txt9O1A201_sc.Text},
-                { "sd_948P201_sc", txt948P201_sc.Text},
-            };
-
-            return dicData;
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            //ShowData();
-            //SetNumericUpDown_divisor();
+            var savePaths = Utility.ReadConfigFile(_savePathName);
+            if (savePaths != null)
+                txtSavePath.Text = savePaths[0];
 
-            //var savePaths = Utility.ReadConfigFile(_savePathName);
-            //if (savePaths != null)
-            //    txtSavePath.Text = savePaths[0];
+            InitTextBoxNumberOnly();
+            LoadNodeConditionData();
 
-            ////CorrectionValue(new object(), EventArgs.Empty);
-            //InitializeEventHandlers();
-
-            //foreach (var name in Program.Codes)
-            //{
-            //    LimitValidator.SetTemperatureLimits(name, 100, 0);
-            //    LimitValidator.SetRPMLimits(name, 10, 10);
-            //}
-            //=========測試區==========           
-            //tmrData.Interval = 10000;
-            //_export.SetCycleIntervalMinutes(10);
-            tmrData.Enabled = false;
-            //=========測試區==========
-        }
-
-        private void InitializeEventHandlers()
-        {
-            var numericUpDownControls = tpConversion.Controls.OfType<NumericUpDown>();
-
-            foreach (var control in numericUpDownControls)
+            if (!LimitValidator.LoadNodeLimitsFromDatabase())
             {
-                if (control.Name.Contains("_divisor") || control.Name.Contains("_as"))
-                {
-                    control.ValueChanged += new EventHandler(CorrectionValue);
-                }
-            }
-
-            var textBoxControls = tpConversion.Controls.OfType<TextBox>().Where(x => x.Name.Contains("_sc"));
-
-            foreach (var control in textBoxControls)
-            {
-                control.TextChanged += new EventHandler(CorrectionValue);
-            }
-        }
-
-        /// <summary>
-        /// 計算值
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void CorrectionValue(object sender, EventArgs e)
-        {
-            //var nudsDivisor = tpConversion.Controls.OfType<NumericUpDown>().Where(x => x.Name.Contains("_divisor") && x.Name != "nud948P201_divisor");
-            var nudsDivisor = tpConversion.Controls.OfType<NumericUpDown>().Where(x => x.Name.Contains("_divisor"));
-            foreach (var nud in nudsDivisor)
-            {
-                var ctrls = tpConversion.Controls;
-                var match = Regex.Match(nud.Name, @"nud(.+)_divisor");
-                var name = match.Groups[1].Value;
-                var source = ctrls.OfType<TextBox>().First(x => x.Name == "txt" + name + "_sc");
-                var target = ctrls.OfType<TextBox>().First(x => x.Name == "txt" + name);
-                var addAndSub = ctrls.OfType<NumericUpDown>().First(x => x.Name == "nud" + name + "_as");
-
-                target.Text = ((decimal.Parse(source.Text) / nud.Value) + addAndSub.Value).ToString("F2");
-            }
-
-            //txt948P201.Text = Utility.CalculateExhaustAirflow((decimal)95.5, (decimal)761.3, (decimal)-0.14, (decimal)0.385, ((decimal.Parse(txt948P201_sc.Text) / nud948P201_divisor.Value) - nud948P201_as.Value)).ToString();
-            txt937P201.Text = (double.Parse(txt948P201.Text) * (double.Parse(txt936P201.Text) - 21) / 10).ToString("F2");
-
-        }
-
-        private void SetNumericUpDown_divisor()
-        {
-            var content = Utility.ReadConfigFile(_divisoFileName);
-
-            if (content == null || content.Length == 0)
-            {
-                tpConversion.Controls.OfType<NumericUpDown>().Where(x => x.Name.Contains("_divisor")).ToList().ForEach(x => x.Value = 1);
+                tmrUpdate.Enabled = false;
+                btnRestart.BackColor = Color.Red;
             }
             else
             {
-                foreach (var line in content)
-                {
-                    var parts = line.Split('=');
-                    var name = parts[0];
-                    var value = decimal.Parse(parts[1]);
+                btnRestart.PerformClick();
+            }
 
-                    tpConversion.Controls.OfType<NumericUpDown>().FirstOrDefault(x => x.Name == name).Value = value;
-                }
+            tpConversion.Parent = null;
+
+            //=========測試區==========           
+            //timer1.Interval = 10000;
+            //_export.SetCycleIntervalMinutes(10);
+            //timer1.Enabled = false;
+            //=========測試區==========
+        }
+
+        private void LoadNodeConditionData()
+        {
+            var ctrls = tpStatus.Controls;
+
+            ctrls.OfType<GroupBox>().ToList().ForEach(x =>
+            {
+                var model = new NodeConditionModel();
+                var name = x.Name.Replace("grp", "");
+                model.LoadDataByName(name);
+
+                var statusRadioButton = x.Controls.OfType<RadioButton>().FirstOrDefault(r => r.Tag.ToString() == model.Status.ToString());
+                if (statusRadioButton != null)
+                    statusRadioButton.Checked = true;
+
+                var ulTextBox = ctrls.OfType<TextBox>().FirstOrDefault(txt => txt.Name == "txt" + name + "_UL");
+                var llTextBox = ctrls.OfType<TextBox>().FirstOrDefault(txt => txt.Name == "txt" + name + "_LL");
+                var elTextBox = ctrls.OfType<TextBox>().FirstOrDefault(txt => txt.Name == "txt" + name + "_EL");
+
+                if (ulTextBox != null)
+                    ulTextBox.Text = model.UL.ToString();
+
+                if (llTextBox != null)
+                    llTextBox.Text = model.LL.ToString();
+
+                if (elTextBox != null)
+                    elTextBox.Text = model.EL.ToString();
+            });
+        }
+
+        private void InitTextBoxNumberOnly()
+        {
+            tpStatus.Controls.OfType<TextBox>().ToList().ForEach(t => t.KeyPress += new KeyPressEventHandler(textBox_KeyPress));
+        }
+
+        private void textBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+
+            // 檢查輸入的是否是數字、控制字符或小數點
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != '.')
+            {
+                e.Handled = true; // 若不是數字、控制字符或小數點，則阻止輸入
+            }
+            // 允許一個小數點
+            else if (e.KeyChar == '.' && textBox.Text.Contains("."))
+            {
+                e.Handled = true; // 若已經有小數點，則阻止再次輸入小數點
             }
         }
 
@@ -244,14 +136,17 @@ namespace YunYan
 
         private void btnRestart_Click(object sender, EventArgs e)
         {
-            tmrData.Enabled = true;
+            tmrUpdate.Enabled = true;
             BackColor = SystemColors.Control;
         }
 
-        private void tmrModbus_Tick(object sender, EventArgs e)
+        private void GetModbusData()
         {
             var modbus10 = _modbus_10.GetData();
             _modbusData.Wind = modbus10[6];
+            _modbusData.ADAM_6017_05 = modbus10[4];
+            _modbusData.ADAM_6017_03 = modbus10[2];
+            _modbusData.AC_001 = modbus10[5];
 
             var modbus15_1 = _modbus_15_1.GetData();
             _modbusData.PDI_200 = modbus15_1[16];
@@ -289,46 +184,173 @@ namespace YunYan
             _modbusData.TI_350_2 = modbus15_2[6];
 
             lblTI_150.Text = _modbusData.TI_150.ToString();
-            lblTI_160_1.Text=_modbusData.TI_160_1.ToString();
+            lblTI_160_1.Text = _modbusData.TI_160_1.ToString();
             lblTI_160_2.Text = _modbusData.TI_160_2.ToString();
-            lblTI_380.Text=_modbusData.TI_380.ToString();
-            lblPI_420.Text=_modbusData.PI_420.ToString();
-            lblTI_361.Text=_modbusData.TI_361.ToString();
-            lblTI_362.Text=_modbusData.TI_362.ToString();
-            lblTI_370_1.Text=_modbusData.TI_370_1.ToString();
-            lblTI381.Text=_modbusData.TI_381.ToString();
-            lblTI_382.Text=_modbusData.TI_382.ToString();
-            lblTI_370_2.Text=_modbusData.TI_370_2.ToString();
-            lblTI_380_1.Text=_modbusData.TI_380.ToString() ;
-            lblTI_200_3.Text=_modbusData.TI_200_3.ToString() ;
-            lblTI_200_1.Text=_modbusData.TI_200_1.ToString() ;
-            lblTI_200_5.Text=_modbusData.TI_200_5 .ToString() ;
-            lblTI_200_4.Text=_modbusData.TI_200_4.ToString() ;
-            lblPDI_200.Text=_modbusData.PDI_200.ToString() ;
-            lblTI_200_2.Text=_modbusData.TI_200_2.ToString() ;
-            lblTI_200_12.Text=_modbusData.TI_200_12.ToString() ;
+            lblTI_380.Text = _modbusData.TI_380.ToString();
+            lblPI_420.Text = _modbusData.PI_420.ToString();
+            lblTI_361.Text = _modbusData.TI_361.ToString();
+            lblTI_362.Text = _modbusData.TI_362.ToString();
+            lblTI_370_1.Text = _modbusData.TI_370_1.ToString();
+            lblTI381.Text = _modbusData.TI_381.ToString();
+            lblTI_382.Text = _modbusData.TI_382.ToString();
+            lblTI_370_2.Text = _modbusData.TI_370_2.ToString();
+            lblTI_380_1.Text = _modbusData.TI_380.ToString();
+            lblTI_200_3.Text = _modbusData.TI_200_3.ToString();
+            lblTI_200_1.Text = _modbusData.TI_200_1.ToString();
+            lblTI_200_5.Text = _modbusData.TI_200_5.ToString();
+            lblTI_200_4.Text = _modbusData.TI_200_4.ToString();
+            lblPDI_200.Text = _modbusData.PDI_200.ToString();
+            lblTI_200_2.Text = _modbusData.TI_200_2.ToString();
+            lblTI_200_12.Text = _modbusData.TI_200_12.ToString();
             lblTI_200_6.Text = _modbusData.TI_200_6.ToString();
-            lblPI_300.Text=_modbusData.PI_300.ToString() ;
-            lblTI_300.Text=_modbusData.TI_300.ToString() ;
-            lblTI_350_1.Text=_modbusData.TI_350_1.ToString() ;
-            lblTI_350.Text=_modbusData.TI_350.ToString() ;
-            lblTI_350_2.Text=_modbusData.TI_350_2.ToString() ;
+            lblPI_300.Text = _modbusData.PI_300.ToString();
+            lblTI_300.Text = _modbusData.TI_300.ToString();
+            lblTI_350_1.Text = _modbusData.TI_350_1.ToString();
+            lblTI_350.Text = _modbusData.TI_350.ToString();
+            lblTI_350_2.Text = _modbusData.TI_350_2.ToString();
             lblTI_643_1.Text = _modbusData.TI_643_1.ToString();
-            lblTI_642_2.Text=_modbusData.TI_642_2.ToString() ;
-            lblTI_642_1.Text=_modbusData.TI_642_1.ToString() ;
-            lblTI_643_2.Text=_modbusData.TI_643_2.ToString() ;
+            lblTI_642_2.Text = _modbusData.TI_642_2.ToString();
+            lblTI_642_1.Text = _modbusData.TI_642_1.ToString();
+            lblTI_643_2.Text = _modbusData.TI_643_2.ToString();
             lblA201.Text = _modbusData.A201.ToString();
-            lbl9O1A201.Text=_modbusData._9OA201.ToString() ;
-            lblTI_600_1.Text=_modbusData.TI_600_1 .ToString() ;
-            lblPI_600.Text=_modbusData.PI_600.ToString() ;
-            lblTI_600_3.Text=_modbusData .TI_600_3.ToString() ;
-            lblTI_600_2.Text=_modbusData.TI_600_2.ToString() ;
-            lbl948P201.Text=_modbusData._948P201.ToString() ;
+            lbl9O1A201.Text = _modbusData._9OA201.ToString();
+            lblTI_600_1.Text = _modbusData.TI_600_1.ToString();
+            lblPI_600.Text = _modbusData.PI_600.ToString();
+            lblTI_600_3.Text = _modbusData.TI_600_3.ToString();
+            lblTI_600_2.Text = _modbusData.TI_600_2.ToString();
+            lbl948P201.Text = _modbusData._948P201.ToString();
             lblP201.Text = _modbusData.P201.ToString();
-            lbl937P201.Text=_modbusData._937P201 .ToString() ;
-            lblTI_900.Text=_modbusData.TI_900.ToString() ;
-            txtTI_900.Text=_modbusData.TI_900 .ToString() ;
-            txtWind.Text=_modbusData.Wind.ToString() ;
+            lbl937P201.Text = _modbusData._937P201.ToString();
+            lblTI_900.Text = _modbusData.TI_900.ToString();
+            txtTI_900.Text = _modbusData.TI_900.ToString();
+            txtWind.Text = _modbusData.Wind.ToString();
+        }
+
+        private void btnSave_status_Click(object sender, EventArgs e)
+        {
+            var ctrls = tpStatus.Controls;
+
+            ctrls.OfType<GroupBox>().ToList().ForEach(x =>
+            {
+                var model = new NodeConditionModel();
+                model.Name = x.Name.Replace("grp", "");
+                model.Status = int.Parse(x.Controls.OfType<RadioButton>().First(r => r.Checked).Tag.ToString());
+
+                var ulTextBox = ctrls.OfType<TextBox>().FirstOrDefault(txt => txt.Name == "txt" + model.Name + "_UL");
+                var llTextBox = ctrls.OfType<TextBox>().FirstOrDefault(txt => txt.Name == "txt" + model.Name + "_LL");
+                var elTextBox = ctrls.OfType<TextBox>().FirstOrDefault(txt => txt.Name == "txt" + model.Name + "_EL");
+
+                model.UL = ParseDoubleFromTextBox(ulTextBox) ?? model.UL;
+                model.LL = ParseDoubleFromTextBox(llTextBox) ?? model.LL;
+                model.EL = ParseDoubleFromTextBox(elTextBox) ?? model.EL;
+
+                model.InsertOrUpdateData();
+            });
+
+            LimitValidator.LoadNodeLimitsFromDatabase();
+            MessageBox.Show("存檔成功");
+        }
+
+        private double? ParseDoubleFromTextBox(TextBox textBox)
+        {
+            if (textBox != null && !string.IsNullOrEmpty(textBox.Text))
+            {
+                if (double.TryParse(textBox.Text, out double result))
+                {
+                    return result;
+                }
+            }
+            return null;
+        }
+
+        private void tmrUpdate_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                #region 寫入資料庫
+
+                //每分鐘存到資料庫
+                if (DateTime.Now.Second == 0)
+                {
+                    var dic = new Dictionary<string, object>()
+                    {
+                        { "sd_time",DateTime.Now},
+                        { "sd_9F3E201", _modbusData.TI_200_1},
+                        { "sd_9F4E201", _modbusData.TI_200_3},
+                        { "sd_9F4E203", _modbusData.TI_300},
+                        { "sd_9E4A201", _modbusData.TI_600_1},
+                        { "sd_9D1A201", _modbusData.ADAM_6017_05},
+                        { "sd_937P201", _modbusData._937P201},
+                        { "sd_936P201", _modbusData.ADAM_6017_03},
+                        { "sd_9O1A201", _modbusData.AC_001},
+                        { "sd_948P201", _modbusData.Wind},
+                    };
+
+                    //檢查有無逾限
+                    foreach (var kvp in dic)
+                    {
+                        try
+                        {
+                            var node = kvp.Key.Replace("sd_", "");
+                            if (!LimitValidator.IsWithinTemperatureLimits(node, double.Parse(kvp.Value.ToString())))
+                            {
+                                Utility.LineNotify(node + " " + kvp.Value);
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            continue;
+                        }
+                    }
+
+                    foreach (var gb in tpStatus.Controls.OfType<GroupBox>())
+                    {
+                        var key = gb.Name.Replace("grp", "sd_") + "_status";
+                        var value = gb.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked)?.Tag?.ToString();
+                        dic[key] = value; // 添加或更新鍵值對到 dic 字典中
+                    }
+
+                    using (MySQL sql = new MySQL())
+                    {
+                        sql.InsertTable("sensor_data", dic);
+                    }
+                }
+
+                #endregion
+
+                // 檢查當前時間是否為每五分鐘的整數倍
+                if (DateTime.Now.Minute % 5 == 0)
+                {
+                    // 確保 txtSavePath 有有效的路徑
+                    if (!string.IsNullOrEmpty(txtSavePath.Text))
+                    {
+                        // 確保每五分鐘只執行一次
+                        if (DateTime.Now.Minute != _tempMinute)
+                        {
+                            _tempMinute = DateTime.Now.Minute;
+
+                            // 設置儲存路徑並處理數據
+                            _export.SavePath = txtSavePath.Text;
+                            _export.FetchAndProcessData(DateTime.Now);
+                        }
+                    }
+                }
+                else
+                {
+                    _tempMinute = -1; // 重置 _tempMinute，以便能夠再次觸發操作
+                }
+            }
+            catch (Exception ex)
+            {
+                tpConversion.BackColor = Color.Red;
+                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
+                tmrGetData.Enabled = false;
+            }
+        }
+
+        private void tmrGetData_Tick(object sender, EventArgs e)
+        {
+            GetModbusData();
         }
     }
 }

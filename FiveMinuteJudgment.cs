@@ -15,8 +15,7 @@ namespace YunYan
                 return GetDefaultStatusExportDataDict();
             }
 
-            //EvaluateRow(dataTable, exportDataDict);
-            Test(dataTable, exportDataDict);
+            EvaluateRow(dataTable, exportDataDict);
 
             return exportDataDict;
         }
@@ -36,75 +35,50 @@ namespace YunYan
             return exportDataDict;
         }
 
-        private void Test(DataTable dataTable, Dictionary<string, ExportData> exportDataDict)
-        {
-            foreach (string field in Program.Codes)
-            {
-                var temperatureFieldName = "sd_" + field;
-                var rpmFieldName = temperatureFieldName + "_rpm";
-                var validTemperatureIndexes = dataTable.AsEnumerable()
-                                                       .Select(row => row.Field<double>(temperatureFieldName))
-                                                       .ToList();
-                double averageTemperature = 0;
-                string status;
-
-                averageTemperature = validTemperatureIndexes.Average();
-                status = "10";
-                exportDataDict[field] = new ExportData
-                {
-                    Value = averageTemperature,
-                    Status = status
-                };
-            }
-        }
-
         private void EvaluateRow(DataTable dataTable, Dictionary<string, ExportData> exportDataDict)
         {
-            foreach (string field in Program.Codes)
+            foreach (string nodeName in Program.Codes)
             {
-                var temperatureFieldName = "sd_" + field;
+                var temperatureFieldName = "sd_" + nodeName;
                 var rpmFieldName = temperatureFieldName + "_rpm";
+                var statusFieldName = "sd_" + nodeName + "_status";
 
-                // 過濾出符合溫度標準的值及其索引
-                var validTemperatureIndexes = dataTable.AsEnumerable()
-                                                       .Select((row, index) => new { Value = row.Field<double>(temperatureFieldName), Index = index })
-                                                       .Where(x => LimitValidator.IsWithinTemperatureLimits(field, x.Value))
-                                                       .ToList();
+                //判斷有沒有正常數據
+                var nodeRows = dataTable.AsEnumerable().Select(row => new { Temperture = row.Field<double>(temperatureFieldName), Status = row.Field<string>(statusFieldName) });
 
-                // 只考慮符合溫度標準的轉數值
-                var validRpmValues = validTemperatureIndexes.Select(x => dataTable.Rows[x.Index].Field<double>(rpmFieldName)).ToList();
-
-                double averageTemperature = 0;
-                double averageRpm = 0;
-                string status;
-
-                if (validTemperatureIndexes.Any())
+                //異常狀態(校正:20 維修:31)
+                if (nodeRows.Where(r => r.Status == "10").Count() == 0)
                 {
-                    averageTemperature = validTemperatureIndexes.Select(x => x.Value).Average();
-                    averageRpm = validRpmValues.Average();
-
-                    if (LimitValidator.IsWithinRPMLimits(field, averageRpm))
+                    //取出最後一筆不正常點位的資料
+                    var lastRow = nodeRows.LastOrDefault();
+                    exportDataDict.Add(nodeName, new ExportData()
                     {
-                        // 符合核定操作範圍判斷
-                        status = "10";
-                    }
-                    else
-                    {
-                        // 風車待機或降載
-                        // 符合降仔操作範圍
-                        status = "02";
-                    }
+                        Value = lastRow.Temperture,
+                        Status = lastRow.Status.ToString(),
+                    });
                 }
                 else
                 {
-                    status = "31";
+                    //計算五分中平均值
+                    var avg=nodeRows.Where(row => row.Status == "10").Average(r=>r.Temperture);
+                    
+                    if (LimitValidator.IsWithinTemperatureLimits(nodeName, avg))
+                    {
+                        exportDataDict.Add(nodeName, new ExportData()
+                        {
+                            Value = avg,
+                            Status ="10"
+                        });
+                    }
+                    else
+                    {
+                        exportDataDict.Add(nodeName, new ExportData()
+                        {
+                            Value = avg,
+                            Status ="11"
+                        });
+                    }
                 }
-
-                exportDataDict[field] = new ExportData
-                {
-                    Value = averageTemperature,
-                    Status = status
-                };
             }
         }
     }

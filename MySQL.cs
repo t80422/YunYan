@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -13,17 +14,20 @@ namespace YunYan
 
         public MySQL()
         {
-            var connectionString = "Server=localhost;Port=3307;Database=yunyan;Uid=root;";
-
+            var connectionString = ConfigurationManager.AppSettings["connectString"];
             _conn = new MySqlConnection(connectionString);
+        }
 
+        private void ExecuteAction(Action action)
+        {
             try
             {
                 _conn.Open();
+                action();
             }
             catch (Exception ex)
             {
-                throw new Exception("資料庫連結失敗", ex);
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -31,19 +35,17 @@ namespace YunYan
             }
         }
 
-        public DataTable SelectTable(string query, Dictionary<string, object> parameters)
+        public DataTable SelectTable(string query, Dictionary<string, object> parameters = null)
         {
             var dt = new DataTable();
-
-            try
+            ExecuteAction(() =>
             {
-                _conn.Open();
-
                 using (MySqlCommand cmd = new MySqlCommand(query, _conn))
                 {
-                    foreach (var p in parameters)
+                    // 只有當 parameters 不為 null 和不為空時，才添加參數
+                    if (parameters != null && parameters.Count > 0)
                     {
-                        cmd.Parameters.AddWithValue(p.Key, p.Value);
+                        AddParameters(cmd, parameters);
                     }
 
                     using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
@@ -51,50 +53,59 @@ namespace YunYan
                         adapter.Fill(dt);
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            _conn.Close();
-
+            });
             return dt;
         }
+
 
         public void InsertTable(string tableName, Dictionary<string, object> parameters)
         {
             var sql = $"INSERT INTO {tableName} ({string.Join(",", parameters.Keys)}) VALUES ({string.Join(",", parameters.Keys.Select(x => $"@{x}"))})";
+            ExecuteNonQuery(sql, parameters);
+        }
 
-            try
+        public void UpdateTable(string tableName, Dictionary<string, object> parameters, string whereClause)
+        {
+            var setClause = string.Join(", ", parameters.Keys.Select(key => $"{key} = @{key}"));
+            var sql = $"UPDATE {tableName} SET {setClause} WHERE {whereClause}";
+            ExecuteNonQuery(sql, parameters);
+        }
+
+        private void ExecuteNonQuery(string sql, Dictionary<string, object> parameters)
+        {
+            ExecuteAction(() =>
             {
-                _conn.Open();
-
-                using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
+                try
                 {
-                    parameters.ToList().ForEach(p => cmd.Parameters.AddWithValue($"@{p.Key}", p.Value));
-                    cmd.ExecuteNonQuery();
+                    using (MySqlCommand cmd = new MySqlCommand(sql, _conn))
+                    {
+                        AddParameters(cmd, parameters);
+                        cmd.ExecuteNonQuery();
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+                catch (Exception ex)
+                {
+                    Log.LogMsg(ex.Message);
+                    
+                    var sqlStr=sql + "WHERE "+ string.Join(" AND ", parameters.Select(kvp => $"{kvp.Key} = {kvp.Value}")); ;                   
+                    Log.LogMsg(sqlStr);
+                }
+            });
+        }
 
-            _conn.Close();
+        private void AddParameters(MySqlCommand command, Dictionary<string, object> parameters)
+        {
+            foreach (var p in parameters)
+            {
+                command.Parameters.AddWithValue(p.Key, p.Value);
+            }
         }
 
         public void Dispose()
         {
-            if (_conn != null)
-            {
-                if (_conn.State == ConnectionState.Open)
-                {
-                    _conn.Close();
-                }
-                _conn.Dispose();
-                _conn = null;
-            }
-
+            _conn?.Close();
+            _conn?.Dispose();
+            _conn = null;
             GC.SuppressFinalize(this);
         }
     }

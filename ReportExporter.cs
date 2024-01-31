@@ -1,17 +1,16 @@
-﻿using System;
+﻿using Advantech.Adam;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
-using System.Linq;
 
 namespace YunYan
 {
     internal class ReportExporter
     {
         private DateTime _time;
-        private Dictionary<string, List<double>> _hourlyData = new Dictionary<string, List<double>>();
         private List<Dictionary<string, ExportData>> _hourData = new List<Dictionary<string, ExportData>>();
-        private int _cycleIntervalMinutes = 60;
+        private double temp9O1 = 0;
 
         public string SavePath { get; set; }
 
@@ -24,6 +23,7 @@ namespace YunYan
                 {"end",_time},
                 {"start",_time.AddMinutes(-5)}
             };
+
             DataTable dt;
 
             using (MySQL sql = new MySQL())
@@ -41,30 +41,27 @@ namespace YunYan
             foreach (var data in lstData)
             {
                 content += DataString(data.Key, data.Value.Value, data.Value.Status, false) + "\n";
+                
+                if (data.Value.Status != "10")
+                {
+                    Utility.LineNotify($"點位:{data.Key} 狀態異常:{data.Value.Status}");
+                }
             }
 
-            if (_time.Minute % _cycleIntervalMinutes == 0)
+            if (_time.Minute == 0)
             {
                 var hour = new HourJudgment();
+                Dictionary<string, ExportData> dicData = _hourData[_hourData.Count - 1];
 
-                foreach (var kvp in hour.ProcessData(_hourData, false, false, false))
+                foreach (var kvp in hour.ProcessData(_hourData, temp9O1, false, false, true))
                 {
                     content += DataString(kvp.Key, kvp.Value.Value, kvp.Value.Status, true) + "\n";
                 }
 
-                _hourlyData.Clear(); // 清除資料，為下一小時做準備
+                temp9O1 = dicData["9O1A201"].Value;
+                _hourData.Clear(); // 清除資料，為下一小時做準備
             }
-
             ExportFile(content);
-        }
-
-        /// <summary>
-        /// 設定循環時間,可用於縮短測試時間
-        /// </summary>
-        /// <param name="minutes"></param>
-        public void SetCycleIntervalMinutes(int minutes)
-        {
-            _cycleIntervalMinutes = minutes;
         }
 
         /// <summary>
@@ -82,11 +79,10 @@ namespace YunYan
                 code = "2" + code.Substring(1);
             }
 
-            var rocYear = _time.Year - 1991;
-            var formatValue = Math.Round(value, 2).ToString("#0.0#").PadLeft(isHourFormat ? 9 : 7, '0');
-            var timeFormat = isHourFormat ? "MMddHH" : "MMddHHmm";
+            var rocYear = _time.Year - 1911;
+            var formatValue = Math.Round(value, 2).ToString("#0.0#").PadRight(7, ' ');
 
-            return code + "  " + rocYear.ToString("000") + _time.ToString(timeFormat) + formatValue + "   " + status;
+            return code + "  " + rocYear.ToString("000") + _time.ToString("MMddHHmm") + formatValue + "   " + status;
         }
 
         private void ExportFile(string content)

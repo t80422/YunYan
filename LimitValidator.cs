@@ -1,80 +1,113 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace YunYan
 {
     static class LimitValidator
     {
-        public static Dictionary<string, double> TemperatureUpperLimit;
-        public static Dictionary<string, double> TemperatureLowerLimit;
-        public static Dictionary<string, int> RPMUpperLimit;
-        public static Dictionary<string, int> RPMLowerLimit;
+        public static Dictionary<string, NodeLimit> Nodes;
 
         static LimitValidator()
         {
-            TemperatureUpperLimit = InitializeLimits<double>();
-            TemperatureLowerLimit = InitializeLimits<double>();
-            RPMUpperLimit = InitializeLimits<int>();
-            RPMLowerLimit = InitializeLimits<int>();
+            Nodes = new Dictionary<string, NodeLimit>();
+            foreach (var node in Program.Codes)
+            {
+                var nl = new NodeLimit();
+                Nodes.Add(node, nl);
+            }
         }
 
-        private static Dictionary<string, T> InitializeLimits<T>()
+        public struct NodeLimit
         {
-            var keys = Program.Codes.ToList();
-            return keys.ToDictionary(key => key, key => default(T));
+            public double? UpperLimit;
+            public double? LowerLimit;
+            public double? ErrorLimit;
+            public int RPMUpperLimit;
+            public int RPMLowerLimit;
+            public int Status;
         }
 
-        /// <summary>
-        /// 設定溫度上下限
-        /// </summary>
-        /// <param name="target">目標點位</param>
-        /// <param name="upperValue">上限值</param>
-        /// <param name="lowerValue">下限值</param>
-        public static void SetTemperatureLimits(string target, double upperValue, double lowerValue)
+        public static bool LoadNodeLimitsFromDatabase()
         {
-            TemperatureUpperLimit[target] = upperValue;
-            TemperatureLowerLimit[target] = lowerValue;
+            bool result = false;
+
+            try
+            {
+                DataTable dt;
+
+                using (MySQL sql = new MySQL())
+                {
+                    dt = sql.SelectTable("SELECT * FROM node_condition");
+                };
+
+                if (dt.Rows.Count == 0)
+                {
+                    MessageBox.Show("請先設定點位的上下限與狀態並存檔,再點擊繼續執行");
+                }
+                else
+                {
+                    GetNodeStatus(dt);
+                    GetNodeLimit(dt);
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                // 處理異常情況
+                MessageBox.Show($"無法從數據庫加載數據。詳細信息：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return result;
         }
 
-        /// <summary>
-        /// 設定轉數上下限
-        /// </summary>
-        /// <param name="target">目標點位</param>
-        /// <param name="upperValue">上限值</param>
-        /// <param name="lowerValue">下限值</param>
-        public static void SetRPMLimits(string target, int upperValue, int lowerValue)
+
+        private static void GetNodeLimit(DataTable dt)
         {
-            RPMUpperLimit[target] = upperValue;
-            RPMLowerLimit[target] = lowerValue;
+            string[] nodes = { "9F4E203", "9E4A203", "9D1A201", "937P201" };
+
+            var nodeLimits = dt.AsEnumerable()
+                               .Where(row => nodes.Contains(row.Field<string>("nc_name")))
+                               .ToDictionary(
+                                   row => row.Field<string>("nc_name"),
+                                   row => new NodeLimit
+                                   {
+                                       UpperLimit = row.Field<double>("nc_UL"),
+                                       LowerLimit = row.Field<double>("nc_LL"),
+                                       ErrorLimit = row.Field<double>("nc_EL")
+                                   });
+
+            foreach (var nodeLimit in nodeLimits)
+            {
+                Nodes[nodeLimit.Key] = nodeLimit.Value;
+            }
+        }
+
+        private static void GetNodeStatus(DataTable dt)
+        {
+            foreach (string node in Program.Codes)
+            {
+                var row = dt.AsEnumerable().FirstOrDefault(r => r.Field<string>("nc_name") == node);
+                if (row != null)
+                {
+                    NodeLimit nodeLimit = new NodeLimit() { Status = row.Field<int>("nc_status") };
+                    Nodes[node] = nodeLimit;
+                }
+            }
         }
 
         public static bool IsWithinTemperatureLimits(string name, double value)
         {
-            // 檢查名稱是否存在於上下限字典中
-            if (!TemperatureUpperLimit.ContainsKey(name) || !TemperatureLowerLimit.ContainsKey(name))            
-                throw new ArgumentException(name + "不存在於上下限設定中。");           
-
-            // 獲取上限和下限
-            double upperLimit = TemperatureUpperLimit[name];
-            double lowerLimit = TemperatureLowerLimit[name];
-
-            // 判斷值是否在範圍內
-            return value >= lowerLimit && value <= upperLimit;
-        }
-
-        public static bool IsWithinRPMLimits(string name, double value)
-        {
-            // 檢查名稱是否存在於上下限字典中
-            if (!TemperatureUpperLimit.ContainsKey(name) || !TemperatureLowerLimit.ContainsKey(name))            
-                throw new ArgumentException(name + "不存在於上下限設定中。");
-
-            // 獲取上限和下限
-            double upperLimit = RPMUpperLimit[name];
-            double lowerLimit = RPMLowerLimit[name];
-
-            // 判斷值是否在範圍內
-            return value >= lowerLimit && value <= upperLimit;
+            if (Nodes.TryGetValue(name, out NodeLimit nodeLimit))
+            {
+                if (nodeLimit.UpperLimit.HasValue && nodeLimit.LowerLimit.HasValue)
+                {
+                    return value >= nodeLimit.LowerLimit.Value && value <= nodeLimit.UpperLimit.Value;
+                }
+            }
+            return true;
         }
     }
 }
