@@ -31,63 +31,7 @@ namespace YunYan
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.txt9F3E201 = new System.Windows.Forms.TextBox();
-            this.txt9F4E201 = new System.Windows.Forms.TextBox();
-            this.txt9F4E203 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txt9E4A201 = new System.Windows.Forms.TextBox();
-            this.txt9D1A201 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txt936P201 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txt937P201 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txt9O1A201 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.txt948P201 = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txt948P201_sc = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txt9O1A201_sc = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.txt936P201_sc = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.txt9D1A201_sc = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.txt9E4A201_sc = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.txt9F4E203_sc = new System.Windows.Forms.TextBox();
-            this.txt9F4E201_sc = new System.Windows.Forms.TextBox();
-            this.txt9F3E201_sc = new System.Windows.Forms.TextBox();
-            this.nud9F3E201_divisor = new System.Windows.Forms.NumericUpDown();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.nud9F3E201_as = new System.Windows.Forms.NumericUpDown();
-            this.nud9F4E201_as = new System.Windows.Forms.NumericUpDown();
-            this.nud9F4E201_divisor = new System.Windows.Forms.NumericUpDown();
-            this.nud9E4A201_as = new System.Windows.Forms.NumericUpDown();
-            this.nud9E4A201_divisor = new System.Windows.Forms.NumericUpDown();
-            this.nud9F4E203_as = new System.Windows.Forms.NumericUpDown();
-            this.nud9F4E203_divisor = new System.Windows.Forms.NumericUpDown();
-            this.nud9O1A201_as = new System.Windows.Forms.NumericUpDown();
-            this.nud9O1A201_divisor = new System.Windows.Forms.NumericUpDown();
-            this.nud936P201_as = new System.Windows.Forms.NumericUpDown();
-            this.nud936P201_divisor = new System.Windows.Forms.NumericUpDown();
-            this.nud9D1A201_as = new System.Windows.Forms.NumericUpDown();
-            this.nud9D1A201_divisor = new System.Windows.Forms.NumericUpDown();
-            this.nud948P201_as = new System.Windows.Forms.NumericUpDown();
-            this.nud948P201_divisor = new System.Windows.Forms.NumericUpDown();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.txtSavePath = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tpConversion = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.lblTI_160_2 = new System.Windows.Forms.Label();
             this.lblTI_160_1 = new System.Windows.Forms.Label();
@@ -159,6 +103,8 @@ namespace YunYan
             this.lblTI_642_2 = new System.Windows.Forms.Label();
             this.lblTI_643_1 = new System.Windows.Forms.Label();
             this.tpStatus = new System.Windows.Forms.TabPage();
+            this.txtSavePath = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnRestart = new System.Windows.Forms.Button();
             this.btnSave_status = new System.Windows.Forms.Button();
             this.grp948P201 = new System.Windows.Forms.GroupBox();
@@ -260,39 +206,11 @@ namespace YunYan
             this.label14 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.tabPage13 = new System.Windows.Forms.TabPage();
-            this.tabPage14 = new System.Windows.Forms.TabPage();
-            this.button10 = new System.Windows.Forms.Button();
-            this.textBox25 = new System.Windows.Forms.TextBox();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
             this.tmrGetData = new System.Windows.Forms.Timer(this.components);
             this.tmrUpdate = new System.Windows.Forms.Timer(this.components);
-            ((System.ComponentModel.ISupportInitialize)(this.nud9F3E201_divisor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9F3E201_as)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9F4E201_as)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9F4E201_divisor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9E4A201_as)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9E4A201_divisor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9F4E203_as)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9F4E203_divisor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9O1A201_as)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9O1A201_divisor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud936P201_as)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud936P201_divisor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9D1A201_as)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9D1A201_divisor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud948P201_as)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud948P201_divisor)).BeginInit();
+            this.txtBackupPath = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
-            this.tpConversion.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -309,731 +227,10 @@ namespace YunYan
             this.grp9D1A201.SuspendLayout();
             this.grp9F3E201.SuspendLayout();
             this.tabPage7.SuspendLayout();
-            this.tabPage14.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // txt9F3E201
-            // 
-            this.txt9F3E201.Location = new System.Drawing.Point(105, 48);
-            this.txt9F3E201.Margin = new System.Windows.Forms.Padding(4);
-            this.txt9F3E201.Name = "txt9F3E201";
-            this.txt9F3E201.ReadOnly = true;
-            this.txt9F3E201.Size = new System.Drawing.Size(100, 30);
-            this.txt9F3E201.TabIndex = 0;
-            // 
-            // txt9F4E201
-            // 
-            this.txt9F4E201.Location = new System.Drawing.Point(105, 91);
-            this.txt9F4E201.Margin = new System.Windows.Forms.Padding(4);
-            this.txt9F4E201.Name = "txt9F4E201";
-            this.txt9F4E201.ReadOnly = true;
-            this.txt9F4E201.Size = new System.Drawing.Size(100, 30);
-            this.txt9F4E201.TabIndex = 1;
-            // 
-            // txt9F4E203
-            // 
-            this.txt9F4E203.Location = new System.Drawing.Point(105, 134);
-            this.txt9F4E203.Margin = new System.Windows.Forms.Padding(4);
-            this.txt9F4E203.Name = "txt9F4E203";
-            this.txt9F4E203.ReadOnly = true;
-            this.txt9F4E203.Size = new System.Drawing.Size(100, 30);
-            this.txt9F4E203.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label1.Location = new System.Drawing.Point(26, 51);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 16);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "9F3E201";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label2.Location = new System.Drawing.Point(26, 95);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(72, 16);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "9F4E201";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label3.Location = new System.Drawing.Point(26, 137);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(72, 16);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "9F4E203";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label4.Location = new System.Drawing.Point(26, 181);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(75, 16);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "9E4A201";
-            // 
-            // txt9E4A201
-            // 
-            this.txt9E4A201.Location = new System.Drawing.Point(105, 177);
-            this.txt9E4A201.Margin = new System.Windows.Forms.Padding(4);
-            this.txt9E4A201.Name = "txt9E4A201";
-            this.txt9E4A201.ReadOnly = true;
-            this.txt9E4A201.Size = new System.Drawing.Size(100, 30);
-            this.txt9E4A201.TabIndex = 8;
-            // 
-            // txt9D1A201
-            // 
-            this.txt9D1A201.Location = new System.Drawing.Point(105, 220);
-            this.txt9D1A201.Margin = new System.Windows.Forms.Padding(4);
-            this.txt9D1A201.Name = "txt9D1A201";
-            this.txt9D1A201.ReadOnly = true;
-            this.txt9D1A201.Size = new System.Drawing.Size(100, 30);
-            this.txt9D1A201.TabIndex = 10;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label5.Location = new System.Drawing.Point(26, 223);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(77, 16);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "9D1A201";
-            // 
-            // txt936P201
-            // 
-            this.txt936P201.Location = new System.Drawing.Point(105, 306);
-            this.txt936P201.Margin = new System.Windows.Forms.Padding(4);
-            this.txt936P201.Name = "txt936P201";
-            this.txt936P201.ReadOnly = true;
-            this.txt936P201.Size = new System.Drawing.Size(100, 30);
-            this.txt936P201.TabIndex = 15;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label6.Location = new System.Drawing.Point(26, 309);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(71, 16);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "936P201";
-            // 
-            // txt937P201
-            // 
-            this.txt937P201.Location = new System.Drawing.Point(105, 263);
-            this.txt937P201.Margin = new System.Windows.Forms.Padding(4);
-            this.txt937P201.Name = "txt937P201";
-            this.txt937P201.ReadOnly = true;
-            this.txt937P201.Size = new System.Drawing.Size(100, 30);
-            this.txt937P201.TabIndex = 13;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label7.Location = new System.Drawing.Point(26, 266);
-            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(71, 16);
-            this.label7.TabIndex = 12;
-            this.label7.Text = "937P201";
-            // 
-            // txt9O1A201
-            // 
-            this.txt9O1A201.Location = new System.Drawing.Point(105, 349);
-            this.txt9O1A201.Margin = new System.Windows.Forms.Padding(4);
-            this.txt9O1A201.Name = "txt9O1A201";
-            this.txt9O1A201.ReadOnly = true;
-            this.txt9O1A201.Size = new System.Drawing.Size(100, 30);
-            this.txt9O1A201.TabIndex = 17;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label9.Location = new System.Drawing.Point(26, 352);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(77, 16);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "9O1A201";
-            // 
-            // txt948P201
-            // 
-            this.txt948P201.Location = new System.Drawing.Point(105, 392);
-            this.txt948P201.Margin = new System.Windows.Forms.Padding(4);
-            this.txt948P201.Name = "txt948P201";
-            this.txt948P201.ReadOnly = true;
-            this.txt948P201.Size = new System.Drawing.Size(100, 30);
-            this.txt948P201.TabIndex = 19;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label8.Location = new System.Drawing.Point(26, 395);
-            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 16);
-            this.label8.TabIndex = 18;
-            this.label8.Text = "948P201";
-            // 
-            // txt948P201_sc
-            // 
-            this.txt948P201_sc.Location = new System.Drawing.Point(324, 392);
-            this.txt948P201_sc.Margin = new System.Windows.Forms.Padding(4);
-            this.txt948P201_sc.Name = "txt948P201_sc";
-            this.txt948P201_sc.ReadOnly = true;
-            this.txt948P201_sc.Size = new System.Drawing.Size(100, 30);
-            this.txt948P201_sc.TabIndex = 60;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label21.Location = new System.Drawing.Point(221, 395);
-            this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(95, 16);
-            this.label21.TabIndex = 59;
-            this.label21.Text = "948P201_sc";
-            // 
-            // txt9O1A201_sc
-            // 
-            this.txt9O1A201_sc.Location = new System.Drawing.Point(324, 349);
-            this.txt9O1A201_sc.Margin = new System.Windows.Forms.Padding(4);
-            this.txt9O1A201_sc.Name = "txt9O1A201_sc";
-            this.txt9O1A201_sc.ReadOnly = true;
-            this.txt9O1A201_sc.Size = new System.Drawing.Size(100, 30);
-            this.txt9O1A201_sc.TabIndex = 58;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label22.Location = new System.Drawing.Point(221, 352);
-            this.label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(101, 16);
-            this.label22.TabIndex = 57;
-            this.label22.Text = "9O1A201_sc";
-            // 
-            // txt936P201_sc
-            // 
-            this.txt936P201_sc.Location = new System.Drawing.Point(324, 306);
-            this.txt936P201_sc.Margin = new System.Windows.Forms.Padding(4);
-            this.txt936P201_sc.Name = "txt936P201_sc";
-            this.txt936P201_sc.ReadOnly = true;
-            this.txt936P201_sc.Size = new System.Drawing.Size(100, 30);
-            this.txt936P201_sc.TabIndex = 56;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label23.Location = new System.Drawing.Point(221, 309);
-            this.label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(95, 16);
-            this.label23.TabIndex = 55;
-            this.label23.Text = "936P201_sc";
-            // 
-            // txt9D1A201_sc
-            // 
-            this.txt9D1A201_sc.Location = new System.Drawing.Point(324, 220);
-            this.txt9D1A201_sc.Margin = new System.Windows.Forms.Padding(4);
-            this.txt9D1A201_sc.Name = "txt9D1A201_sc";
-            this.txt9D1A201_sc.ReadOnly = true;
-            this.txt9D1A201_sc.Size = new System.Drawing.Size(100, 30);
-            this.txt9D1A201_sc.TabIndex = 52;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label25.Location = new System.Drawing.Point(221, 223);
-            this.label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(101, 16);
-            this.label25.TabIndex = 51;
-            this.label25.Text = "9D1A201_sc";
-            // 
-            // txt9E4A201_sc
-            // 
-            this.txt9E4A201_sc.Location = new System.Drawing.Point(324, 177);
-            this.txt9E4A201_sc.Margin = new System.Windows.Forms.Padding(4);
-            this.txt9E4A201_sc.Name = "txt9E4A201_sc";
-            this.txt9E4A201_sc.ReadOnly = true;
-            this.txt9E4A201_sc.Size = new System.Drawing.Size(100, 30);
-            this.txt9E4A201_sc.TabIndex = 50;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label26.Location = new System.Drawing.Point(221, 181);
-            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(99, 16);
-            this.label26.TabIndex = 49;
-            this.label26.Text = "9E4A201_sc";
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label27.Location = new System.Drawing.Point(221, 137);
-            this.label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(96, 16);
-            this.label27.TabIndex = 48;
-            this.label27.Text = "9F4E203_sc";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label28.Location = new System.Drawing.Point(221, 94);
-            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(96, 16);
-            this.label28.TabIndex = 47;
-            this.label28.Text = "9F4E201_sc";
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label29.Location = new System.Drawing.Point(221, 51);
-            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(96, 16);
-            this.label29.TabIndex = 46;
-            this.label29.Text = "9F3E201_sc";
-            // 
-            // txt9F4E203_sc
-            // 
-            this.txt9F4E203_sc.Location = new System.Drawing.Point(324, 134);
-            this.txt9F4E203_sc.Margin = new System.Windows.Forms.Padding(4);
-            this.txt9F4E203_sc.Name = "txt9F4E203_sc";
-            this.txt9F4E203_sc.ReadOnly = true;
-            this.txt9F4E203_sc.Size = new System.Drawing.Size(100, 30);
-            this.txt9F4E203_sc.TabIndex = 45;
-            // 
-            // txt9F4E201_sc
-            // 
-            this.txt9F4E201_sc.Location = new System.Drawing.Point(324, 91);
-            this.txt9F4E201_sc.Margin = new System.Windows.Forms.Padding(4);
-            this.txt9F4E201_sc.Name = "txt9F4E201_sc";
-            this.txt9F4E201_sc.ReadOnly = true;
-            this.txt9F4E201_sc.Size = new System.Drawing.Size(100, 30);
-            this.txt9F4E201_sc.TabIndex = 44;
-            // 
-            // txt9F3E201_sc
-            // 
-            this.txt9F3E201_sc.Location = new System.Drawing.Point(324, 48);
-            this.txt9F3E201_sc.Margin = new System.Windows.Forms.Padding(4);
-            this.txt9F3E201_sc.Name = "txt9F3E201_sc";
-            this.txt9F3E201_sc.ReadOnly = true;
-            this.txt9F3E201_sc.Size = new System.Drawing.Size(100, 30);
-            this.txt9F3E201_sc.TabIndex = 43;
-            // 
-            // nud9F3E201_divisor
-            // 
-            this.nud9F3E201_divisor.DecimalPlaces = 6;
-            this.nud9F3E201_divisor.Location = new System.Drawing.Point(439, 48);
-            this.nud9F3E201_divisor.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nud9F3E201_divisor.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.nud9F3E201_divisor.Name = "nud9F3E201_divisor";
-            this.nud9F3E201_divisor.Size = new System.Drawing.Size(150, 30);
-            this.nud9F3E201_divisor.TabIndex = 61;
-            this.nud9F3E201_divisor.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label10.Location = new System.Drawing.Point(459, 25);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(42, 16);
-            this.label10.TabIndex = 62;
-            this.label10.Text = "除數";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label11.Location = new System.Drawing.Point(665, 25);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(23, 16);
-            this.label11.TabIndex = 64;
-            this.label11.Text = "+-";
-            // 
-            // nud9F3E201_as
-            // 
-            this.nud9F3E201_as.DecimalPlaces = 6;
-            this.nud9F3E201_as.Location = new System.Drawing.Point(603, 48);
-            this.nud9F3E201_as.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.nud9F3E201_as.Minimum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            -2147483648});
-            this.nud9F3E201_as.Name = "nud9F3E201_as";
-            this.nud9F3E201_as.Size = new System.Drawing.Size(150, 30);
-            this.nud9F3E201_as.TabIndex = 63;
-            // 
-            // nud9F4E201_as
-            // 
-            this.nud9F4E201_as.DecimalPlaces = 6;
-            this.nud9F4E201_as.Location = new System.Drawing.Point(603, 92);
-            this.nud9F4E201_as.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.nud9F4E201_as.Minimum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            -2147483648});
-            this.nud9F4E201_as.Name = "nud9F4E201_as";
-            this.nud9F4E201_as.Size = new System.Drawing.Size(150, 30);
-            this.nud9F4E201_as.TabIndex = 66;
-            // 
-            // nud9F4E201_divisor
-            // 
-            this.nud9F4E201_divisor.DecimalPlaces = 6;
-            this.nud9F4E201_divisor.Location = new System.Drawing.Point(439, 92);
-            this.nud9F4E201_divisor.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nud9F4E201_divisor.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.nud9F4E201_divisor.Name = "nud9F4E201_divisor";
-            this.nud9F4E201_divisor.Size = new System.Drawing.Size(150, 30);
-            this.nud9F4E201_divisor.TabIndex = 65;
-            this.nud9F4E201_divisor.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // nud9E4A201_as
-            // 
-            this.nud9E4A201_as.DecimalPlaces = 6;
-            this.nud9E4A201_as.Location = new System.Drawing.Point(603, 178);
-            this.nud9E4A201_as.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.nud9E4A201_as.Minimum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            -2147483648});
-            this.nud9E4A201_as.Name = "nud9E4A201_as";
-            this.nud9E4A201_as.Size = new System.Drawing.Size(150, 30);
-            this.nud9E4A201_as.TabIndex = 70;
-            // 
-            // nud9E4A201_divisor
-            // 
-            this.nud9E4A201_divisor.DecimalPlaces = 6;
-            this.nud9E4A201_divisor.Location = new System.Drawing.Point(439, 178);
-            this.nud9E4A201_divisor.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nud9E4A201_divisor.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.nud9E4A201_divisor.Name = "nud9E4A201_divisor";
-            this.nud9E4A201_divisor.Size = new System.Drawing.Size(150, 30);
-            this.nud9E4A201_divisor.TabIndex = 69;
-            this.nud9E4A201_divisor.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // nud9F4E203_as
-            // 
-            this.nud9F4E203_as.DecimalPlaces = 6;
-            this.nud9F4E203_as.Location = new System.Drawing.Point(603, 134);
-            this.nud9F4E203_as.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.nud9F4E203_as.Minimum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            -2147483648});
-            this.nud9F4E203_as.Name = "nud9F4E203_as";
-            this.nud9F4E203_as.Size = new System.Drawing.Size(150, 30);
-            this.nud9F4E203_as.TabIndex = 68;
-            // 
-            // nud9F4E203_divisor
-            // 
-            this.nud9F4E203_divisor.DecimalPlaces = 6;
-            this.nud9F4E203_divisor.Location = new System.Drawing.Point(439, 134);
-            this.nud9F4E203_divisor.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nud9F4E203_divisor.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.nud9F4E203_divisor.Name = "nud9F4E203_divisor";
-            this.nud9F4E203_divisor.Size = new System.Drawing.Size(150, 30);
-            this.nud9F4E203_divisor.TabIndex = 67;
-            this.nud9F4E203_divisor.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // nud9O1A201_as
-            // 
-            this.nud9O1A201_as.DecimalPlaces = 6;
-            this.nud9O1A201_as.Location = new System.Drawing.Point(603, 350);
-            this.nud9O1A201_as.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.nud9O1A201_as.Minimum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            -2147483648});
-            this.nud9O1A201_as.Name = "nud9O1A201_as";
-            this.nud9O1A201_as.Size = new System.Drawing.Size(150, 30);
-            this.nud9O1A201_as.TabIndex = 78;
-            // 
-            // nud9O1A201_divisor
-            // 
-            this.nud9O1A201_divisor.DecimalPlaces = 6;
-            this.nud9O1A201_divisor.Location = new System.Drawing.Point(439, 350);
-            this.nud9O1A201_divisor.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nud9O1A201_divisor.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.nud9O1A201_divisor.Name = "nud9O1A201_divisor";
-            this.nud9O1A201_divisor.Size = new System.Drawing.Size(150, 30);
-            this.nud9O1A201_divisor.TabIndex = 77;
-            this.nud9O1A201_divisor.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // nud936P201_as
-            // 
-            this.nud936P201_as.DecimalPlaces = 6;
-            this.nud936P201_as.Location = new System.Drawing.Point(603, 306);
-            this.nud936P201_as.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.nud936P201_as.Minimum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            -2147483648});
-            this.nud936P201_as.Name = "nud936P201_as";
-            this.nud936P201_as.Size = new System.Drawing.Size(150, 30);
-            this.nud936P201_as.TabIndex = 76;
-            // 
-            // nud936P201_divisor
-            // 
-            this.nud936P201_divisor.DecimalPlaces = 6;
-            this.nud936P201_divisor.Location = new System.Drawing.Point(439, 306);
-            this.nud936P201_divisor.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nud936P201_divisor.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.nud936P201_divisor.Name = "nud936P201_divisor";
-            this.nud936P201_divisor.Size = new System.Drawing.Size(150, 30);
-            this.nud936P201_divisor.TabIndex = 75;
-            this.nud936P201_divisor.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // nud9D1A201_as
-            // 
-            this.nud9D1A201_as.DecimalPlaces = 6;
-            this.nud9D1A201_as.Location = new System.Drawing.Point(603, 220);
-            this.nud9D1A201_as.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.nud9D1A201_as.Minimum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            -2147483648});
-            this.nud9D1A201_as.Name = "nud9D1A201_as";
-            this.nud9D1A201_as.Size = new System.Drawing.Size(150, 30);
-            this.nud9D1A201_as.TabIndex = 72;
-            // 
-            // nud9D1A201_divisor
-            // 
-            this.nud9D1A201_divisor.DecimalPlaces = 6;
-            this.nud9D1A201_divisor.Location = new System.Drawing.Point(439, 220);
-            this.nud9D1A201_divisor.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nud9D1A201_divisor.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.nud9D1A201_divisor.Name = "nud9D1A201_divisor";
-            this.nud9D1A201_divisor.Size = new System.Drawing.Size(150, 30);
-            this.nud9D1A201_divisor.TabIndex = 71;
-            this.nud9D1A201_divisor.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // nud948P201_as
-            // 
-            this.nud948P201_as.DecimalPlaces = 6;
-            this.nud948P201_as.Location = new System.Drawing.Point(603, 392);
-            this.nud948P201_as.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.nud948P201_as.Minimum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            -2147483648});
-            this.nud948P201_as.Name = "nud948P201_as";
-            this.nud948P201_as.Size = new System.Drawing.Size(150, 30);
-            this.nud948P201_as.TabIndex = 80;
-            // 
-            // nud948P201_divisor
-            // 
-            this.nud948P201_divisor.DecimalPlaces = 6;
-            this.nud948P201_divisor.Location = new System.Drawing.Point(439, 392);
-            this.nud948P201_divisor.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.nud948P201_divisor.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            131072});
-            this.nud948P201_divisor.Name = "nud948P201_divisor";
-            this.nud948P201_divisor.Size = new System.Drawing.Size(150, 30);
-            this.nud948P201_divisor.TabIndex = 79;
-            this.nud948P201_divisor.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // btnSave
-            // 
-            this.btnSave.AutoSize = true;
-            this.btnSave.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnSave.Location = new System.Drawing.Point(499, 438);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(86, 33);
-            this.btnSave.TabIndex = 81;
-            this.btnSave.Text = "儲存設定";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // txtSavePath
-            // 
-            this.txtSavePath.Location = new System.Drawing.Point(143, 438);
-            this.txtSavePath.Margin = new System.Windows.Forms.Padding(4);
-            this.txtSavePath.Name = "txtSavePath";
-            this.txtSavePath.Size = new System.Drawing.Size(331, 30);
-            this.txtSavePath.TabIndex = 83;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.label12.Location = new System.Drawing.Point(26, 441);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(110, 16);
-            this.label12.TabIndex = 82;
-            this.label12.Text = "檔案輸出位址";
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tpConversion);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
@@ -1041,10 +238,6 @@ namespace YunYan
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tpStatus);
             this.tabControl1.Controls.Add(this.tabPage7);
-            this.tabControl1.Controls.Add(this.tabPage10);
-            this.tabControl1.Controls.Add(this.tabPage11);
-            this.tabControl1.Controls.Add(this.tabPage13);
-            this.tabControl1.Controls.Add(this.tabPage14);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -1052,71 +245,6 @@ namespace YunYan
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1904, 982);
             this.tabControl1.TabIndex = 85;
-            // 
-            // tpConversion
-            // 
-            this.tpConversion.Controls.Add(this.label1);
-            this.tpConversion.Controls.Add(this.txt9F3E201);
-            this.tpConversion.Controls.Add(this.txtSavePath);
-            this.tpConversion.Controls.Add(this.txt9F4E201);
-            this.tpConversion.Controls.Add(this.label12);
-            this.tpConversion.Controls.Add(this.txt9F4E203);
-            this.tpConversion.Controls.Add(this.btnSave);
-            this.tpConversion.Controls.Add(this.label2);
-            this.tpConversion.Controls.Add(this.nud948P201_as);
-            this.tpConversion.Controls.Add(this.label3);
-            this.tpConversion.Controls.Add(this.nud948P201_divisor);
-            this.tpConversion.Controls.Add(this.label4);
-            this.tpConversion.Controls.Add(this.nud9O1A201_as);
-            this.tpConversion.Controls.Add(this.txt9E4A201);
-            this.tpConversion.Controls.Add(this.nud9O1A201_divisor);
-            this.tpConversion.Controls.Add(this.label5);
-            this.tpConversion.Controls.Add(this.nud936P201_as);
-            this.tpConversion.Controls.Add(this.txt9D1A201);
-            this.tpConversion.Controls.Add(this.nud936P201_divisor);
-            this.tpConversion.Controls.Add(this.label7);
-            this.tpConversion.Controls.Add(this.nud9D1A201_as);
-            this.tpConversion.Controls.Add(this.txt937P201);
-            this.tpConversion.Controls.Add(this.nud9D1A201_divisor);
-            this.tpConversion.Controls.Add(this.label6);
-            this.tpConversion.Controls.Add(this.nud9E4A201_as);
-            this.tpConversion.Controls.Add(this.txt936P201);
-            this.tpConversion.Controls.Add(this.nud9E4A201_divisor);
-            this.tpConversion.Controls.Add(this.label9);
-            this.tpConversion.Controls.Add(this.nud9F4E203_as);
-            this.tpConversion.Controls.Add(this.txt9O1A201);
-            this.tpConversion.Controls.Add(this.nud9F4E203_divisor);
-            this.tpConversion.Controls.Add(this.label8);
-            this.tpConversion.Controls.Add(this.nud9F4E201_as);
-            this.tpConversion.Controls.Add(this.txt948P201);
-            this.tpConversion.Controls.Add(this.nud9F4E201_divisor);
-            this.tpConversion.Controls.Add(this.txt9F3E201_sc);
-            this.tpConversion.Controls.Add(this.label11);
-            this.tpConversion.Controls.Add(this.txt9F4E201_sc);
-            this.tpConversion.Controls.Add(this.nud9F3E201_as);
-            this.tpConversion.Controls.Add(this.txt9F4E203_sc);
-            this.tpConversion.Controls.Add(this.label10);
-            this.tpConversion.Controls.Add(this.label29);
-            this.tpConversion.Controls.Add(this.nud9F3E201_divisor);
-            this.tpConversion.Controls.Add(this.label28);
-            this.tpConversion.Controls.Add(this.txt948P201_sc);
-            this.tpConversion.Controls.Add(this.label27);
-            this.tpConversion.Controls.Add(this.label21);
-            this.tpConversion.Controls.Add(this.label26);
-            this.tpConversion.Controls.Add(this.txt9O1A201_sc);
-            this.tpConversion.Controls.Add(this.txt9E4A201_sc);
-            this.tpConversion.Controls.Add(this.label22);
-            this.tpConversion.Controls.Add(this.label25);
-            this.tpConversion.Controls.Add(this.txt936P201_sc);
-            this.tpConversion.Controls.Add(this.txt9D1A201_sc);
-            this.tpConversion.Controls.Add(this.label23);
-            this.tpConversion.Location = new System.Drawing.Point(4, 29);
-            this.tpConversion.Name = "tpConversion";
-            this.tpConversion.Padding = new System.Windows.Forms.Padding(3);
-            this.tpConversion.Size = new System.Drawing.Size(1896, 949);
-            this.tpConversion.TabIndex = 0;
-            this.tpConversion.Text = "數值換算";
-            this.tpConversion.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
@@ -1893,6 +1021,10 @@ namespace YunYan
             // tpStatus
             // 
             this.tpStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tpStatus.Controls.Add(this.txtBackupPath);
+            this.tpStatus.Controls.Add(this.label2);
+            this.tpStatus.Controls.Add(this.txtSavePath);
+            this.tpStatus.Controls.Add(this.label1);
             this.tpStatus.Controls.Add(this.btnRestart);
             this.tpStatus.Controls.Add(this.btnSave_status);
             this.tpStatus.Controls.Add(this.grp948P201);
@@ -1944,26 +1076,44 @@ namespace YunYan
             this.tpStatus.Text = "維修及上下限設定";
             this.tpStatus.UseVisualStyleBackColor = true;
             // 
+            // txtSavePath
+            // 
+            this.txtSavePath.Location = new System.Drawing.Point(304, 676);
+            this.txtSavePath.Name = "txtSavePath";
+            this.txtSavePath.Size = new System.Drawing.Size(346, 30);
+            this.txtSavePath.TabIndex = 87;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(65, 679);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(135, 19);
+            this.label1.TabIndex = 86;
+            this.label1.Text = "輸出檔案路徑";
+            // 
             // btnRestart
             // 
             this.btnRestart.AutoSize = true;
+            this.btnRestart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.btnRestart.Font = new System.Drawing.Font("標楷體", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
-            this.btnRestart.Location = new System.Drawing.Point(1206, 596);
+            this.btnRestart.Location = new System.Drawing.Point(1694, 904);
             this.btnRestart.Name = "btnRestart";
             this.btnRestart.Size = new System.Drawing.Size(103, 37);
             this.btnRestart.TabIndex = 85;
             this.btnRestart.Text = "繼續執行";
-            this.btnRestart.UseVisualStyleBackColor = true;
+            this.btnRestart.UseVisualStyleBackColor = false;
             this.btnRestart.Click += new System.EventHandler(this.btnRestart_Click);
             // 
             // btnSave_status
             // 
-            this.btnSave_status.Location = new System.Drawing.Point(1329, 594);
+            this.btnSave_status.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnSave_status.Location = new System.Drawing.Point(1803, 904);
             this.btnSave_status.Name = "btnSave_status";
             this.btnSave_status.Size = new System.Drawing.Size(85, 37);
             this.btnSave_status.TabIndex = 48;
             this.btnSave_status.Text = "存檔";
-            this.btnSave_status.UseVisualStyleBackColor = true;
+            this.btnSave_status.UseVisualStyleBackColor = false;
             this.btnSave_status.Click += new System.EventHandler(this.btnSave_status_Click);
             // 
             // grp948P201
@@ -2969,130 +2119,6 @@ namespace YunYan
             this.label13.TabIndex = 0;
             this.label13.Text = "Set_Temp(溫度設定)";
             // 
-            // tabPage10
-            // 
-            this.tabPage10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tabPage10.Location = new System.Drawing.Point(4, 29);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(1896, 949);
-            this.tabPage10.TabIndex = 10;
-            this.tabPage10.Text = "警報";
-            this.tabPage10.UseVisualStyleBackColor = true;
-            // 
-            // tabPage11
-            // 
-            this.tabPage11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tabPage11.Location = new System.Drawing.Point(4, 29);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(1896, 949);
-            this.tabPage11.TabIndex = 11;
-            this.tabPage11.Text = "關機";
-            this.tabPage11.UseVisualStyleBackColor = true;
-            // 
-            // tabPage13
-            // 
-            this.tabPage13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tabPage13.Location = new System.Drawing.Point(4, 29);
-            this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Size = new System.Drawing.Size(1896, 949);
-            this.tabPage13.TabIndex = 13;
-            this.tabPage13.Text = "歷史警報";
-            this.tabPage13.UseVisualStyleBackColor = true;
-            // 
-            // tabPage14
-            // 
-            this.tabPage14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tabPage14.Controls.Add(this.button10);
-            this.tabPage14.Controls.Add(this.textBox25);
-            this.tabPage14.Controls.Add(this.textBox24);
-            this.tabPage14.Controls.Add(this.textBox23);
-            this.tabPage14.Controls.Add(this.label56);
-            this.tabPage14.Controls.Add(this.label55);
-            this.tabPage14.Controls.Add(this.label54);
-            this.tabPage14.Controls.Add(this.label53);
-            this.tabPage14.Controls.Add(this.label52);
-            this.tabPage14.Location = new System.Drawing.Point(4, 29);
-            this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Size = new System.Drawing.Size(1896, 949);
-            this.tabPage14.TabIndex = 14;
-            this.tabPage14.Text = "紀錄";
-            this.tabPage14.UseVisualStyleBackColor = true;
-            // 
-            // button10
-            // 
-            this.button10.Location = new System.Drawing.Point(344, 181);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(110, 34);
-            this.button10.TabIndex = 8;
-            this.button10.Text = "ComIndex";
-            this.button10.UseVisualStyleBackColor = true;
-            // 
-            // textBox25
-            // 
-            this.textBox25.Location = new System.Drawing.Point(422, 258);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(81, 30);
-            this.textBox25.TabIndex = 7;
-            // 
-            // textBox24
-            // 
-            this.textBox24.Location = new System.Drawing.Point(741, 105);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(81, 30);
-            this.textBox24.TabIndex = 6;
-            // 
-            // textBox23
-            // 
-            this.textBox23.Location = new System.Drawing.Point(391, 105);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(81, 30);
-            this.textBox23.TabIndex = 5;
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(643, 216);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(294, 95);
-            this.label56.TabIndex = 4;
-            this.label56.Text = "00:設備停機狀態\r\n10:正常傳送狀態\r\n11:不符合核定之操作量測值\r\n31:防制設備維修、保養量測值\r\n32:傳送資料異常";
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(460, 189);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(141, 19);
-            this.label55.TabIndex = 3;
-            this.label55.Text = "Report START";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(281, 261);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(135, 19);
-            this.label54.TabIndex = 2;
-            this.label54.Text = "目前傳送狀態";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(618, 108);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(117, 19);
-            this.label53.TabIndex = 1;
-            this.label53.Text = "Report計數";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(268, 108);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(117, 19);
-            this.label52.TabIndex = 0;
-            this.label52.Text = "Report次數";
-            // 
             // tmrGetData
             // 
             this.tmrGetData.Enabled = true;
@@ -3105,6 +2131,22 @@ namespace YunYan
             this.tmrUpdate.Interval = 1000;
             this.tmrUpdate.Tick += new System.EventHandler(this.tmrUpdate_Tick);
             // 
+            // txtBackupPath
+            // 
+            this.txtBackupPath.Location = new System.Drawing.Point(304, 712);
+            this.txtBackupPath.Name = "txtBackupPath";
+            this.txtBackupPath.Size = new System.Drawing.Size(346, 30);
+            this.txtBackupPath.TabIndex = 89;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(65, 715);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(135, 19);
+            this.label2.TabIndex = 88;
+            this.label2.Text = "備份檔案路徑";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
@@ -3114,28 +2156,10 @@ namespace YunYan
             this.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "溫度監控系統 v0.0.1";
+            this.Text = "溫度監控系統 v1.0.0";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.nud9F3E201_divisor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9F3E201_as)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9F4E201_as)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9F4E201_divisor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9E4A201_as)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9E4A201_divisor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9F4E203_as)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9F4E203_divisor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9O1A201_as)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9O1A201_divisor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud936P201_as)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud936P201_divisor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9D1A201_as)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud9D1A201_divisor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud948P201_as)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nud948P201_divisor)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tpConversion.ResumeLayout(false);
-            this.tpConversion.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
@@ -3163,71 +2187,12 @@ namespace YunYan
             this.grp9F3E201.PerformLayout();
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
-            this.tabPage14.ResumeLayout(false);
-            this.tabPage14.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txt9F3E201;
-        private System.Windows.Forms.TextBox txt9F4E201;
-        private System.Windows.Forms.TextBox txt9F4E203;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txt9E4A201;
-        private System.Windows.Forms.TextBox txt9D1A201;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox txt936P201;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox txt937P201;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox txt9O1A201;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox txt948P201;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox txt948P201_sc;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox txt9O1A201_sc;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox txt936P201_sc;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox txt9D1A201_sc;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox txt9E4A201_sc;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox txt9F4E203_sc;
-        private System.Windows.Forms.TextBox txt9F4E201_sc;
-        private System.Windows.Forms.TextBox txt9F3E201_sc;
-        private System.Windows.Forms.NumericUpDown nud9F3E201_divisor;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.NumericUpDown nud9F3E201_as;
-        private System.Windows.Forms.NumericUpDown nud9F4E201_as;
-        private System.Windows.Forms.NumericUpDown nud9F4E201_divisor;
-        private System.Windows.Forms.NumericUpDown nud9E4A201_as;
-        private System.Windows.Forms.NumericUpDown nud9E4A201_divisor;
-        private System.Windows.Forms.NumericUpDown nud9F4E203_as;
-        private System.Windows.Forms.NumericUpDown nud9F4E203_divisor;
-        private System.Windows.Forms.NumericUpDown nud9O1A201_as;
-        private System.Windows.Forms.NumericUpDown nud9O1A201_divisor;
-        private System.Windows.Forms.NumericUpDown nud936P201_as;
-        private System.Windows.Forms.NumericUpDown nud936P201_divisor;
-        private System.Windows.Forms.NumericUpDown nud9D1A201_as;
-        private System.Windows.Forms.NumericUpDown nud9D1A201_divisor;
-        private System.Windows.Forms.NumericUpDown nud948P201_as;
-        private System.Windows.Forms.NumericUpDown nud948P201_divisor;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.TextBox txtSavePath;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tpConversion;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage3;
@@ -3288,19 +2253,6 @@ namespace YunYan
         private System.Windows.Forms.TextBox txt9E4A201_UL;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.TabPage tabPage10;
-        private System.Windows.Forms.TabPage tabPage11;
-        private System.Windows.Forms.TabPage tabPage13;
-        private System.Windows.Forms.TabPage tabPage14;
-        private System.Windows.Forms.TextBox textBox24;
-        private System.Windows.Forms.TextBox textBox23;
-        private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.Label label52;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.TextBox textBox25;
         private System.Windows.Forms.Label lblTI_150;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label57;
@@ -3415,6 +2367,10 @@ namespace YunYan
         private System.Windows.Forms.RadioButton radioButton29;
         private System.Windows.Forms.RadioButton radioButton32;
         private System.Windows.Forms.RadioButton radioButton28;
+        private System.Windows.Forms.TextBox txtSavePath;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtBackupPath;
+        private System.Windows.Forms.Label label2;
     }
 }
 

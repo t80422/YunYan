@@ -13,6 +13,7 @@ namespace YunYan
         private double temp9O1 = 0;
 
         public string SavePath { get; set; }
+        public string BackupPath { get; set; }
 
         public void FetchAndProcessData(DateTime time)
         {
@@ -41,7 +42,7 @@ namespace YunYan
             foreach (var data in lstData)
             {
                 content += DataString(data.Key, data.Value.Value, data.Value.Status, false) + "\n";
-                
+
                 if (data.Value.Status != "10")
                 {
                     Utility.LineNotify($"點位:{data.Key} 狀態異常:{data.Value.Status}");
@@ -87,14 +88,19 @@ namespace YunYan
 
         private void ExportFile(string content)
         {
-            var fileName = "E1" + DateTime.Now.ToString("MMddHHmm") + ".H76";
-            var filePath = Path.Combine(SavePath, fileName);
-
-            content = "100H52A1242E01\n" + content;
-
             try
             {
+                var fileName = "E1" + DateTime.Now.ToString("MMddHHmm") + ".H76";
+                content = "100H52A1242E01\n" + content;
+
+                var filePath = Path.Combine(SavePath, fileName);
                 File.WriteAllText(filePath, content);
+
+                if (BackupPath != "")
+                {
+                    var backupPath = Path.Combine(BackupPath, fileName);
+                    File.WriteAllText(backupPath, content);
+                }
             }
             catch (Exception)
             {

@@ -12,7 +12,8 @@ namespace YunYan
         private string _divisoFileName = "_divisor.set";
         private string _savePathName = "SavePath.set";
         private ReportExporter _export = new ReportExporter();
-        private int _tempMinute;
+        private int _tempMinute = 0;
+        private int tempInsert = 0;
 
         private NModbus _modbus_15_1;
         private NModbus _modbus_15_2;
@@ -46,7 +47,10 @@ namespace YunYan
         {
             var savePaths = Utility.ReadConfigFile(_savePathName);
             if (savePaths != null)
+            {
                 txtSavePath.Text = savePaths[0];
+                txtBackupPath.Text = savePaths[1];
+            }
 
             InitTextBoxNumberOnly();
             LoadNodeConditionData();
@@ -60,8 +64,6 @@ namespace YunYan
             {
                 btnRestart.PerformClick();
             }
-
-            tpConversion.Parent = null;
 
             //=========測試區==========           
             //timer1.Interval = 10000;
@@ -118,20 +120,6 @@ namespace YunYan
             {
                 e.Handled = true; // 若已經有小數點，則阻止再次輸入小數點
             }
-        }
-
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            var content = string.Join(Environment.NewLine,
-                 tpConversion.Controls.OfType<NumericUpDown>()
-                 .Where(x => x.Name.Contains("_divisor"))
-                 .Select(x => x.Name + "=" + x.Value.ToString()));
-
-            Utility.CreateOrUpdateConfigFile(_divisoFileName, content);
-
-            //存檔位置
-            Utility.CreateOrUpdateConfigFile(_savePathName, txtSavePath.Text);
-            MessageBox.Show("儲存成功");
         }
 
         private void btnRestart_Click(object sender, EventArgs e)
@@ -228,6 +216,7 @@ namespace YunYan
 
         private void btnSave_status_Click(object sender, EventArgs e)
         {
+            //點位狀態
             var ctrls = tpStatus.Controls;
 
             ctrls.OfType<GroupBox>().ToList().ForEach(x =>
@@ -248,6 +237,10 @@ namespace YunYan
             });
 
             LimitValidator.LoadNodeLimitsFromDatabase();
+
+            //輸出檔案
+            var content = txtSavePath.Text + "\n" + txtBackupPath.Text;
+            Utility.CreateOrUpdateConfigFile(_savePathName,content );
             MessageBox.Show("存檔成功");
         }
 
@@ -270,8 +263,10 @@ namespace YunYan
                 #region 寫入資料庫
 
                 //每分鐘存到資料庫
-                if (DateTime.Now.Second == 0)
+                if (tempInsert != DateTime.Now.Minute)
                 {
+                    tempInsert = DateTime.Now.Minute;
+
                     var dic = new Dictionary<string, object>()
                     {
                         { "sd_time",DateTime.Now},
@@ -321,8 +316,8 @@ namespace YunYan
                 // 檢查當前時間是否為每五分鐘的整數倍
                 if (DateTime.Now.Minute % 5 == 0)
                 {
-                    // 確保 txtSavePath 有有效的路徑
-                    if (!string.IsNullOrEmpty(txtSavePath.Text))
+                    // 確保 SavePath 有效的路徑
+                    if (!string.IsNullOrEmpty(_savePathName))
                     {
                         // 確保每五分鐘只執行一次
                         if (DateTime.Now.Minute != _tempMinute)
@@ -331,8 +326,13 @@ namespace YunYan
 
                             // 設置儲存路徑並處理數據
                             _export.SavePath = txtSavePath.Text;
+                            _export.BackupPath = txtBackupPath.Text;
                             _export.FetchAndProcessData(DateTime.Now);
                         }
+                    }
+                    else
+                    {
+                        Log.LogMsg("未輸出檔案 無存檔路徑");
                     }
                 }
                 else
@@ -342,8 +342,7 @@ namespace YunYan
             }
             catch (Exception ex)
             {
-                tpConversion.BackColor = Color.Red;
-                MessageBox.Show(ex.Message + "\n" + ex.StackTrace);
+                Log.LogMsg(ex.Message + "\n" + ex.StackTrace);
                 tmrGetData.Enabled = false;
             }
         }
