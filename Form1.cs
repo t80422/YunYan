@@ -49,7 +49,7 @@ namespace YunYan
             if (savePaths != null)
             {
                 txtSavePath.Text = savePaths[0];
-                txtBackupPath.Text = savePaths[1];
+                txtBackupPath.Text = savePaths.Length >= 2 ? savePaths[1] : "";
             }
 
             InitTextBoxNumberOnly();
