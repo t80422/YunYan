@@ -35,7 +35,7 @@ namespace YunYan
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine("Error connecting to Modbus server: " + ex.Message);
+                    Log.LogMsg("Error connecting to Modbus server: " + ex.Message);
                     _isConnected = false;
                 }
             }
@@ -52,7 +52,7 @@ namespace YunYan
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error reading Modbus data: " + ex.Message);
+                Log.LogMsg("Error reading Modbus data: " + ex.Message);
                 _isConnected = false;
 
                 return new ushort[50];

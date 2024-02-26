@@ -75,6 +75,7 @@
     <Reference Include="NModbus4, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>packages\NModbus4.2.1.0\lib\net40\NModbus4.dll</HintPath>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -139,6 +140,7 @@
     <Compile Include="HourJudgment.cs" />
     <Compile Include="Models\ModbusData.cs" />
     <Compile Include="Models\NodeConditionModel.cs" />
+    <Compile Include="ReportExporter_new.cs" />
     <Compile Include="ReportExporter.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -152,6 +154,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="LimitValidator.cs" />
     <Compile Include="FiveMinuteJudgment.cs" />
+    <Compile Include="YunYanFileUtility.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

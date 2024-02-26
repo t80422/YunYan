@@ -10,12 +10,12 @@ namespace YunYan
         /// 處理該小時內的五分鐘數值
         /// </summary>
         /// <param name="dataList"></param>
-        /// <param name="temp9O1">前次最後一筆 9O1A201 數值</param>
+        /// <param name="last9O1">前次最後一筆 9O1A201 數值</param>
         /// <param name="isPermittedLoadReduction"></param>
         /// <param name="isInLoadReductionRange"></param>
         /// <param name="isInApprovedOperationRange"></param>
         /// <returns></returns>
-        public Dictionary<string, ExportData> ProcessData(List<Dictionary<string, ExportData>> dataList, double temp9O1, bool isPermittedLoadReduction, bool isInLoadReductionRange, bool isInApprovedOperationRange)
+        public Dictionary<string, ExportData> ProcessData(List<Dictionary<string, ExportData>> dataList, double last9O1, bool isPermittedLoadReduction, bool isInLoadReductionRange, bool isInApprovedOperationRange)
         {
             var result = new Dictionary<string, ExportData>();
             var allKeys = dataList.SelectMany(dict => dict.Keys).Distinct();
@@ -26,7 +26,7 @@ namespace YunYan
 
                 if (key == "9O1A201")
                 {
-                    result[key] = ProcessExportDatasFor9O1(exportDatasForKey, temp9O1, isPermittedLoadReduction, isInLoadReductionRange, isInApprovedOperationRange);
+                    result[key] = ProcessExportDatasFor9O1(exportDatasForKey, last9O1, isPermittedLoadReduction, isInLoadReductionRange, isInApprovedOperationRange);
                 }
                 else
                 {
@@ -103,9 +103,12 @@ namespace YunYan
             }
         }
 
-        private ExportData ProcessExportDatasFor9O1(List<ExportData> exportDatas, double temp9O1, bool isPermittedLoadReduction, bool isInLoadReductionRange, bool isInApprovedOperationRange)
+        private ExportData ProcessExportDatasFor9O1(List<ExportData> exportDatas, double last9O1, bool isPermittedLoadReduction, bool isInLoadReductionRange, bool isInApprovedOperationRange)
         {
-            var value = temp9O1 - exportDatas.Last().Value;
+            exportDatas.Reverse();
+            //var value = exportDatas.Zip(exportDatas.Skip(1), (a, b) => a.Value - b.Value).Sum();
+            var value = last9O1 - exportDatas.Last().Value;
+
             // 規則 1: 檢查是否有 12 個數值
             if (exportDatas.Count != 12)
             {

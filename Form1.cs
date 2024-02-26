@@ -1,6 +1,8 @@
-﻿using System;
+﻿using FileManagement_YunYan;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using YunYan.Models;
@@ -219,28 +221,28 @@ namespace YunYan
             //點位狀態
             var ctrls = tpStatus.Controls;
 
-            ctrls.OfType<GroupBox>().ToList().ForEach(x =>
-            {
-                var model = new NodeConditionModel();
-                model.Name = x.Name.Replace("grp", "");
-                model.Status = int.Parse(x.Controls.OfType<RadioButton>().First(r => r.Checked).Tag.ToString());
+            ctrls.OfType<GroupBox>().Where(x => x.Name != "groupBox1").ToList().ForEach(x =>
+             {
+                 var model = new NodeConditionModel();
+                 model.Name = x.Name.Replace("grp", "");
+                 model.Status = int.Parse(x.Controls.OfType<RadioButton>().First(r => r.Checked).Tag.ToString());
 
-                var ulTextBox = ctrls.OfType<TextBox>().FirstOrDefault(txt => txt.Name == "txt" + model.Name + "_UL");
-                var llTextBox = ctrls.OfType<TextBox>().FirstOrDefault(txt => txt.Name == "txt" + model.Name + "_LL");
-                var elTextBox = ctrls.OfType<TextBox>().FirstOrDefault(txt => txt.Name == "txt" + model.Name + "_EL");
+                 var ulTextBox = ctrls.OfType<TextBox>().FirstOrDefault(txt => txt.Name == "txt" + model.Name + "_UL");
+                 var llTextBox = ctrls.OfType<TextBox>().FirstOrDefault(txt => txt.Name == "txt" + model.Name + "_LL");
+                 var elTextBox = ctrls.OfType<TextBox>().FirstOrDefault(txt => txt.Name == "txt" + model.Name + "_EL");
 
-                model.UL = ParseDoubleFromTextBox(ulTextBox) ?? model.UL;
-                model.LL = ParseDoubleFromTextBox(llTextBox) ?? model.LL;
-                model.EL = ParseDoubleFromTextBox(elTextBox) ?? model.EL;
+                 model.UL = ParseDoubleFromTextBox(ulTextBox) ?? model.UL;
+                 model.LL = ParseDoubleFromTextBox(llTextBox) ?? model.LL;
+                 model.EL = ParseDoubleFromTextBox(elTextBox) ?? model.EL;
 
-                model.InsertOrUpdateData();
-            });
+                 model.InsertOrUpdateData();
+             });
 
             LimitValidator.LoadNodeLimitsFromDatabase();
 
             //輸出檔案
             var content = txtSavePath.Text + "\n" + txtBackupPath.Text;
-            Utility.CreateOrUpdateConfigFile(_savePathName,content );
+            Utility.CreateOrUpdateConfigFile(_savePathName, content);
             MessageBox.Show("存檔成功");
         }
 
@@ -298,7 +300,7 @@ namespace YunYan
                         }
                     }
 
-                    foreach (var gb in tpStatus.Controls.OfType<GroupBox>())
+                    foreach (var gb in tpStatus.Controls.OfType<GroupBox>().Where(x => x.Name != "groupBox1"))
                     {
                         var key = gb.Name.Replace("grp", "sd_") + "_status";
                         var value = gb.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked)?.Tag?.ToString();
@@ -309,6 +311,26 @@ namespace YunYan
                     {
                         sql.InsertTable("sensor_data", dic);
                     }
+
+                    //#region 檢查有無寫入資料庫
+                    //try
+                    //{
+                    //    using (MySQL sql = new MySQL())
+                    //    {
+                    //        var query = "SELECT sd_time FROM sensor_data ORDER BY sd_id DESC LIMIT 1";
+                    //        var dt = sql.SelectTable(query);
+                    //        if (dt != null)
+                    //        {
+                    //            DateTime dateTime = Convert.ToDateTime(dt.Rows[0]["sd_time"]);
+                    //            Utility.IMAliveNotify(dateTime);
+                    //        }
+                    //    }
+                    //}
+                    //catch (Exception ex)
+                    //{
+                    //    Log.LogMsg("檢查有無寫入資料庫 錯誤:" + ex.Message);
+                    //}
+                    //#endregion
                 }
 
                 #endregion
@@ -350,6 +372,12 @@ namespace YunYan
         private void tmrGetData_Tick(object sender, EventArgs e)
         {
             GetModbusData();
+        }
+
+        private void btnReCreateFile_Click(object sender, EventArgs e)
+        {
+            YunYanFile.RegenerateMissingFiles(txtBackupPath.Text, dtpStart.Value);
+            MessageBox.Show("資料產生完畢");
         }
     }
 }

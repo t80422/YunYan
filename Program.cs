@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace YunYan
@@ -92,24 +93,45 @@ namespace YunYan
             }
         }
 
-        public static void LineNotify(string msg)
+        public static async void LineNotify(string msg)
         {
-            var apiURL = ConfigurationManager.AppSettings["LinNotifyURL"];
-            var uuids = ConfigurationManager.AppSettings["uuid"];
-            var uuidParts = uuids.Split(',');
-
-            for (int i = 0; i < uuidParts.Length; i++)
+            using (var client = new HttpClient())
             {
-                var uuid = uuidParts[i];
-                var getdata = "uuid=" + uuid + "&mydata=";
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/x-www-form-urlencoded"));
 
-                //發送文字編碼
-                var webBrowser = new WebBrowser();
-                var content = "點位異常:" + msg;
-                webBrowser.Navigate(apiURL + getdata + System.Net.WebUtility.UrlEncode(content));
-                Log.LogMsg(content);
+                var tokens = ConfigurationManager.AppSettings["uuid"];
+                var tokenParts = tokens.Split(',');
+
+                foreach (var token in tokenParts)
+                {
+                    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                    var content = new Dictionary<string, string>();
+                    content.Add("message", "點位異常:" + msg);
+                    await client.PostAsync("https://notify-api.line.me/api/notify", new FormUrlEncodedContent(content));
+                }
             }
         }
+
+        //public static async void IMAliveNotify(DateTime date)
+        //{
+        //    string baseUrl = "https://script.google.com/macros/s/AKfycbyHX94g6asBHhb37RG4q00b-FDIlp-9RqfA5f_Fe9mrYEoNY6FZ37hpmu187IoJG2nHhg/exec";
+        //    string datetime = date.ToString("yyyyMMddHHmmss");
+        //    string apiUrl = $"{baseUrl}?datatime={datetime}";
+
+        //    using (HttpClient client = new HttpClient())
+        //    {
+        //        HttpResponseMessage response = await client.GetAsync(apiUrl);
+        //        if (response.IsSuccessStatusCode)
+        //        {
+        //             await response.Content.ReadAsStringAsync();
+        //        }
+        //        else
+        //        {
+        //            // 處理錯誤回應
+        //            Log.LogMsg ($"IMAliveNotify Error: {response.StatusCode}");
+        //        }
+        //    }
+        //}
     }
 
     public static class Log

@@ -103,6 +103,12 @@ namespace YunYan
             this.lblTI_642_2 = new System.Windows.Forms.Label();
             this.lblTI_643_1 = new System.Windows.Forms.Label();
             this.tpStatus = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnReCreateFile = new System.Windows.Forms.Button();
+            this.dtpStart = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtBackupPath = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtSavePath = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRestart = new System.Windows.Forms.Button();
@@ -208,8 +214,6 @@ namespace YunYan
             this.label13 = new System.Windows.Forms.Label();
             this.tmrGetData = new System.Windows.Forms.Timer(this.components);
             this.tmrUpdate = new System.Windows.Forms.Timer(this.components);
-            this.txtBackupPath = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -217,6 +221,7 @@ namespace YunYan
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tpStatus.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.grp948P201.SuspendLayout();
             this.grp9O1A201.SuspendLayout();
             this.grp9E4A201.SuspendLayout();
@@ -1021,6 +1026,7 @@ namespace YunYan
             // tpStatus
             // 
             this.tpStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.tpStatus.Controls.Add(this.groupBox1);
             this.tpStatus.Controls.Add(this.txtBackupPath);
             this.tpStatus.Controls.Add(this.label2);
             this.tpStatus.Controls.Add(this.txtSavePath);
@@ -1076,20 +1082,77 @@ namespace YunYan
             this.tpStatus.Text = "維修及上下限設定";
             this.tpStatus.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnReCreateFile);
+            this.groupBox1.Controls.Add(this.dtpStart);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Font = new System.Drawing.Font("標楷體", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.groupBox1.Location = new System.Drawing.Point(68, 722);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(281, 125);
+            this.groupBox1.TabIndex = 98;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "補產生檔案";
+            // 
+            // btnReCreateFile
+            // 
+            this.btnReCreateFile.AutoSize = true;
+            this.btnReCreateFile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btnReCreateFile.Location = new System.Drawing.Point(109, 71);
+            this.btnReCreateFile.Name = "btnReCreateFile";
+            this.btnReCreateFile.Size = new System.Drawing.Size(70, 40);
+            this.btnReCreateFile.TabIndex = 4;
+            this.btnReCreateFile.Text = "產生";
+            this.btnReCreateFile.UseVisualStyleBackColor = false;
+            this.btnReCreateFile.Click += new System.EventHandler(this.btnReCreateFile_Click);
+            // 
+            // dtpStart
+            // 
+            this.dtpStart.Location = new System.Drawing.Point(68, 32);
+            this.dtpStart.Name = "dtpStart";
+            this.dtpStart.Size = new System.Drawing.Size(200, 33);
+            this.dtpStart.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 40);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(56, 21);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "日期";
+            // 
+            // txtBackupPath
+            // 
+            this.txtBackupPath.Location = new System.Drawing.Point(1542, 846);
+            this.txtBackupPath.Name = "txtBackupPath";
+            this.txtBackupPath.Size = new System.Drawing.Size(346, 30);
+            this.txtBackupPath.TabIndex = 97;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(1401, 849);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(135, 19);
+            this.label2.TabIndex = 96;
+            this.label2.Text = "備份檔案路徑";
+            // 
             // txtSavePath
             // 
-            this.txtSavePath.Location = new System.Drawing.Point(304, 676);
+            this.txtSavePath.Location = new System.Drawing.Point(1542, 803);
             this.txtSavePath.Name = "txtSavePath";
             this.txtSavePath.Size = new System.Drawing.Size(346, 30);
-            this.txtSavePath.TabIndex = 87;
+            this.txtSavePath.TabIndex = 95;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(65, 679);
+            this.label1.Location = new System.Drawing.Point(1401, 806);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(135, 19);
-            this.label1.TabIndex = 86;
+            this.label1.TabIndex = 94;
             this.label1.Text = "輸出檔案路徑";
             // 
             // btnRestart
@@ -1127,6 +1190,7 @@ namespace YunYan
             this.grp948P201.Size = new System.Drawing.Size(346, 61);
             this.grp948P201.TabIndex = 46;
             this.grp948P201.TabStop = false;
+            this.grp948P201.Tag = "node";
             this.grp948P201.Text = "狀態";
             // 
             // radioButton36
@@ -1186,6 +1250,7 @@ namespace YunYan
             this.grp9O1A201.Size = new System.Drawing.Size(346, 61);
             this.grp9O1A201.TabIndex = 45;
             this.grp9O1A201.TabStop = false;
+            this.grp9O1A201.Tag = "node";
             this.grp9O1A201.Text = "狀態";
             // 
             // radioButton35
@@ -1245,6 +1310,7 @@ namespace YunYan
             this.grp9E4A201.Size = new System.Drawing.Size(346, 61);
             this.grp9E4A201.TabIndex = 43;
             this.grp9E4A201.TabStop = false;
+            this.grp9E4A201.Tag = "node";
             this.grp9E4A201.Text = "狀態";
             // 
             // radioButton31
@@ -1304,6 +1370,7 @@ namespace YunYan
             this.grp936P201.Size = new System.Drawing.Size(346, 61);
             this.grp936P201.TabIndex = 46;
             this.grp936P201.TabStop = false;
+            this.grp936P201.Tag = "node";
             this.grp936P201.Text = "狀態";
             // 
             // radioButton34
@@ -1363,7 +1430,7 @@ namespace YunYan
             this.grp9F4E203.Size = new System.Drawing.Size(346, 61);
             this.grp9F4E203.TabIndex = 43;
             this.grp9F4E203.TabStop = false;
-            this.grp9F4E203.Tag = "";
+            this.grp9F4E203.Tag = "node";
             this.grp9F4E203.Text = "狀態";
             // 
             // radioButton30
@@ -1423,6 +1490,7 @@ namespace YunYan
             this.grp937P201.Size = new System.Drawing.Size(346, 61);
             this.grp937P201.TabIndex = 47;
             this.grp937P201.TabStop = false;
+            this.grp937P201.Tag = "node";
             this.grp937P201.Text = "狀態";
             // 
             // radioButton33
@@ -1482,7 +1550,7 @@ namespace YunYan
             this.grp9F4E201.Size = new System.Drawing.Size(346, 61);
             this.grp9F4E201.TabIndex = 43;
             this.grp9F4E201.TabStop = false;
-            this.grp9F4E201.Tag = "";
+            this.grp9F4E201.Tag = "node";
             this.grp9F4E201.Text = "狀態";
             // 
             // radioButton29
@@ -1542,6 +1610,7 @@ namespace YunYan
             this.grp9D1A201.Size = new System.Drawing.Size(346, 61);
             this.grp9D1A201.TabIndex = 44;
             this.grp9D1A201.TabStop = false;
+            this.grp9D1A201.Tag = "node";
             this.grp9D1A201.Text = "狀態";
             // 
             // radioButton32
@@ -1601,7 +1670,7 @@ namespace YunYan
             this.grp9F3E201.Size = new System.Drawing.Size(346, 61);
             this.grp9F3E201.TabIndex = 42;
             this.grp9F3E201.TabStop = false;
-            this.grp9F3E201.Tag = "";
+            this.grp9F3E201.Tag = "node";
             this.grp9F3E201.Text = "狀態";
             // 
             // radioButton28
@@ -2131,22 +2200,6 @@ namespace YunYan
             this.tmrUpdate.Interval = 1000;
             this.tmrUpdate.Tick += new System.EventHandler(this.tmrUpdate_Tick);
             // 
-            // txtBackupPath
-            // 
-            this.txtBackupPath.Location = new System.Drawing.Point(304, 712);
-            this.txtBackupPath.Name = "txtBackupPath";
-            this.txtBackupPath.Size = new System.Drawing.Size(346, 30);
-            this.txtBackupPath.TabIndex = 89;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(65, 715);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(135, 19);
-            this.label2.TabIndex = 88;
-            this.label2.Text = "備份檔案路徑";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
@@ -2156,7 +2209,7 @@ namespace YunYan
             this.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
-            this.Text = "溫度監控系統 v1.0.0";
+            this.Text = "溫度監控系統 v1.1.1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
@@ -2167,6 +2220,8 @@ namespace YunYan
             this.tabPage5.ResumeLayout(false);
             this.tpStatus.ResumeLayout(false);
             this.tpStatus.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.grp948P201.ResumeLayout(false);
             this.grp948P201.PerformLayout();
             this.grp9O1A201.ResumeLayout(false);
@@ -2367,10 +2422,14 @@ namespace YunYan
         private System.Windows.Forms.RadioButton radioButton29;
         private System.Windows.Forms.RadioButton radioButton32;
         private System.Windows.Forms.RadioButton radioButton28;
-        private System.Windows.Forms.TextBox txtSavePath;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnReCreateFile;
+        private System.Windows.Forms.DateTimePicker dtpStart;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtBackupPath;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtSavePath;
+        private System.Windows.Forms.Label label1;
     }
 }
 
