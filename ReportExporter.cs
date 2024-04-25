@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.IO;
+using System.Linq;
 
 namespace YunYan
 {
@@ -21,7 +22,7 @@ namespace YunYan
             var dic = new Dictionary<string, object>
             {
                 {"end",_time.ToString("yyyy-MM-dd HH:mm:59")},
-                {"start",_time.AddMinutes(1).AddMinutes(-5).ToString("yyyy-MM-dd HH:mm:00")}
+                {"start",_time.AddMinutes(-4).ToString("yyyy-MM-dd HH:mm:00")}
             };
             DataTable dt;
 
@@ -33,8 +34,6 @@ namespace YunYan
 
             var sj = new FiveMinuteJudgment();
             var lstData = sj.EvaluateDataTable(dt);
-            //_hourData.Add(lstData);
-
             string content = "";
 
             foreach (var data in lstData)
@@ -49,21 +48,10 @@ namespace YunYan
 
             if (_time.Minute == 0)
             {
-                //var hour = new HourJudgment();
-                //Dictionary<string, ExportData> dicData = _hourData[_hourData.Count - 1];
-
-                //foreach (var kvp in hour.ProcessData(_hourData, temp9O1, false, false, true))
-                //{
-                //    content += DataString(kvp.Key, kvp.Value.Value, kvp.Value.Status, true) + "\n";
-                //}
-
-                //temp9O1 = dicData["9O1A201"].Value;
-                //_hourData.Clear(); // 清除資料，為下一小時做準備
-                //================================================
                 List<Dictionary<string, ExportData>> _hourData = new List<Dictionary<string, ExportData>>();
-                var endTime = _time.AddHours(-1);
+                var startTime = Convert.ToDateTime(_time.AddHours(-1).ToString("yyyy/MM/dd HH:01:00"));
 
-                for (DateTime t = _time; t > endTime; t = t.AddMinutes(-5))
+                for (DateTime t = startTime; t < _time; t = t.AddMinutes(5))
                 {
                     dt = GetFiveMinuteDataFromDb(t);
                     sj = new FiveMinuteJudgment();
@@ -72,9 +60,8 @@ namespace YunYan
                 }
 
                 var hour = new HourJudgment();
-                var last9O1 = GetLastHour9O1(time);
 
-                foreach (var kvp in hour.ProcessData(_hourData, last9O1, false, false, true))
+                foreach (var kvp in hour.ProcessData(_hourData, _time))
                 {
                     content += DataString(kvp.Key, kvp.Value.Value, kvp.Value.Status, true) + "\n";
                 }
@@ -121,8 +108,9 @@ namespace YunYan
                     File.WriteAllText(backupPath, content);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.WriteLine(ex.Message);
                 throw;
             }
         }
@@ -138,8 +126,8 @@ namespace YunYan
             var query = "SELECT * FROM sensor_data WHERE sd_time BETWEEN @start AND @end";
             var parameters = new Dictionary<string, object>()
             {
-                {"@start",dateTime.AddMinutes(-4) },
-                {"@end",dateTime }
+                {"end",dateTime.AddMinutes(4).ToString("yyyy-MM-dd HH:mm:59")},
+                {"start",dateTime.ToString("yyyy-MM-dd HH:mm:00")}
             };
             var dt = new DataTable();
 
@@ -149,45 +137,6 @@ namespace YunYan
             }
 
             return dt;
-        }
-
-        /// <summary>
-        /// 取得上一個小時最後一筆活性碳量(9O1A201)
-        /// </summary>
-        /// <param name="dateTime"></param>
-        /// <returns></returns>
-        private static double GetLastHour9O1(DateTime dateTime)
-        {
-            var query = "SELECT sd_9O1A201 FROM sensor_data WHERE sd_time BETWEEN @start AND @end";
-            var startDateTime = dateTime.AddHours(-1).AddMinutes(-1).ToString("yyyy-MM-dd HH:MM:00");
-            var endDateTime = dateTime.AddHours(-1).ToString("yyyy-MM-dd HH:MM:59");
-
-            var parameter = new Dictionary<string, object>()
-            {
-                {"@start",startDateTime },
-                {"@end",endDateTime }
-            };
-
-            try
-            {
-                using (MySQL sql = new MySQL())
-                {
-                    var dt = sql.SelectTable(query, parameter);
-                    if (dt != null)
-                    {
-                        return Convert.ToDouble(dt.Rows[0]["sd_9O1A201"]);
-                    }
-                    else
-                    {
-                        Log.LogMsg("GetLastHour9O1-找不到上個小時最後一筆9O1A201資料");
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Log.LogMsg("GetLastHour9O1-"+ex.Message);
-            }
-            return 0;
         }
     }
 }

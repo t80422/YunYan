@@ -63,10 +63,9 @@ namespace YunYan
             return result;
         }
 
-
         private static void GetNodeLimit(DataTable dt)
         {
-            string[] nodes = { "9F4E203", "9E4A203", "9D1A201", "937P201" };
+            string[] nodes = { "9F4E203", "9E4A201", "9D1A201", "937P201" };
 
             var nodeLimits = dt.AsEnumerable()
                                .Where(row => nodes.Contains(row.Field<string>("nc_name")))
@@ -98,6 +97,12 @@ namespace YunYan
             }
         }
 
+        /// <summary>
+        /// 判斷是否逾限
+        /// </summary>
+        /// <param name="name">點位名稱</param>
+        /// <param name="value">值</param>
+        /// <returns>Trun:未逾限 False:逾限</returns>
         public static bool IsWithinTemperatureLimits(string name, double value)
         {
             if (Nodes.TryGetValue(name, out NodeLimit nodeLimit))

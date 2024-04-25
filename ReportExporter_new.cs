@@ -17,9 +17,28 @@ namespace YunYan
 
         public void GenerateFile(DateTime time)
         {
+            //_time = time;
+
+            //var dt = GetFiveMinuteDataFromDb(time);
+            //var sj = new FiveMinuteJudgment();
+            //var lstData = sj.EvaluateDataTable(dt);
+            //string content = "";
+
             _time = time;
 
-            var dt = GetFiveMinuteDataFromDb(time);
+            var dic = new Dictionary<string, object>
+            {
+                {"end",_time.ToString("yyyy-MM-dd HH:mm:59")},
+                {"start",_time.AddMinutes(-4).ToString("yyyy-MM-dd HH:mm:00")}
+            };
+            DataTable dt;
+
+            using (MySQL sql = new MySQL())
+            {
+                //取得五分鐘資料
+                dt = sql.SelectTable("SELECT * FROM sensor_data WHERE sd_time BETWEEN @start AND @end", dic);
+            }
+
             var sj = new FiveMinuteJudgment();
             var lstData = sj.EvaluateDataTable(dt);
             string content = "";
@@ -37,10 +56,9 @@ namespace YunYan
             if (_time.Minute == 0)
             {
                 List<Dictionary<string, ExportData>> _hourData = new List<Dictionary<string, ExportData>>();
-                var endTime = _time.AddHours(-1);
-                double temp9O1 = 0;
+                var startTime = Convert.ToDateTime(_time.AddHours(-1).ToString("yyyy/MM/dd HH:01:00"));
 
-                for (DateTime t = _time; t > endTime; t = t.AddMinutes(-5))
+                for (DateTime t = startTime; t < _time; t = t.AddMinutes(5))
                 {
                     dt = GetFiveMinuteDataFromDb(t);
                     sj = new FiveMinuteJudgment();
@@ -50,7 +68,7 @@ namespace YunYan
 
                 var hour = new HourJudgment();
 
-                foreach (var kvp in hour.ProcessData(_hourData, temp9O1, false, false, true))
+                foreach (var kvp in hour.ProcessData(_hourData, _time))
                 {
                     content += DataString(kvp.Key, kvp.Value.Value, kvp.Value.Status, true) + "\n";
                 }
@@ -72,8 +90,8 @@ namespace YunYan
             var query = "SELECT * FROM sensor_data WHERE sd_time BETWEEN @start AND @end";
             var parameters = new Dictionary<string, object>()
             {
-                {"@start",dateTime.AddMinutes(-4) },
-                {"@end",dateTime }
+                {"end",dateTime.AddMinutes(4).ToString("yyyy-MM-dd HH:mm:59")},
+                {"start",dateTime.ToString("yyyy-MM-dd HH:mm:00")}
             };
             var dt = new DataTable();
 

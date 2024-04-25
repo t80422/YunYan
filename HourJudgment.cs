@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace YunYan
@@ -15,7 +16,7 @@ namespace YunYan
         /// <param name="isInLoadReductionRange"></param>
         /// <param name="isInApprovedOperationRange"></param>
         /// <returns></returns>
-        public Dictionary<string, ExportData> ProcessData(List<Dictionary<string, ExportData>> dataList, double last9O1, bool isPermittedLoadReduction, bool isInLoadReductionRange, bool isInApprovedOperationRange)
+        public Dictionary<string, ExportData> ProcessData(List<Dictionary<string, ExportData>> dataList, DateTime dateTime)
         {
             var result = new Dictionary<string, ExportData>();
             var allKeys = dataList.SelectMany(dict => dict.Keys).Distinct();
@@ -26,18 +27,18 @@ namespace YunYan
 
                 if (key == "9O1A201")
                 {
-                    result[key] = ProcessExportDatasFor9O1(exportDatasForKey, last9O1, isPermittedLoadReduction, isInLoadReductionRange, isInApprovedOperationRange);
+                    result[key] = ProcessExportDatasFor9O1(exportDatasForKey, dateTime);
                 }
                 else
                 {
-                    var processedData = ProcessExportDatasForKey(exportDatasForKey, isPermittedLoadReduction, isInLoadReductionRange, isInApprovedOperationRange);
+                    var processedData = ProcessExportDatasForKey(exportDatasForKey,key);
                     result[key] = processedData;
                 }
             }
             return result;
         }
 
-        private ExportData ProcessExportDatasForKey(List<ExportData> exportDatas, bool isPermittedLoadReduction, bool isInLoadReductionRange, bool isInApprovedOperationRange)
+        private ExportData ProcessExportDatasForKey(List<ExportData> exportDatas,string nodeName)
         {
             // 規則 1: 檢查是否有 12 個數值
             if (exportDatas.Count != 12)
@@ -83,31 +84,36 @@ namespace YunYan
                 };
             }
 
-            //規則4:正常數據
-            if (isPermittedLoadReduction)
+            //規則4:檢查逾限
+            //var overLimitCount = exportDatas.Count(x => x.Status == "11");
+            string status;
+
+            //if (overLimitCount <= 6)
+            //    status = "10";
+            //else if (overLimitCount > 6)
+            //    status = "11";
+            var value = exportDatas.Average(x=>x.Value);
+            if (LimitValidator.IsWithinTemperatureLimits(nodeName, value))
             {
-                double averageValue = exportDatas.Average(ed => ed.Value);
-                return new ExportData
-                {
-                    Value = averageValue,
-                    Status = isInLoadReductionRange ? "02" : "11"
-                };
+                status = "10";
             }
             else
             {
-                return new ExportData
-                {
-                    Value = exportDatas.Average(ed => ed.Value),
-                    Status = isInApprovedOperationRange ? "10" : "11"
-                };
+                status = "11";
             }
+
+            return new ExportData()
+            {
+                Status = status,
+                Value = value
+            };
         }
 
-        private ExportData ProcessExportDatasFor9O1(List<ExportData> exportDatas, double last9O1, bool isPermittedLoadReduction, bool isInLoadReductionRange, bool isInApprovedOperationRange)
+        private ExportData ProcessExportDatasFor9O1(List<ExportData> exportDatas, DateTime dateTime)
         {
-            exportDatas.Reverse();
-            //var value = exportDatas.Zip(exportDatas.Skip(1), (a, b) => a.Value - b.Value).Sum();
-            var value = last9O1 - exportDatas.Last().Value;
+            var last9O1 = GetLastFiveMinute9O1(dateTime.AddHours(-1));
+            var now9O1 = GetLastFiveMinute9O1(dateTime);
+            var value = last9O1 - now9O1;
 
             // 規則 1: 檢查是否有 12 個數值
             if (exportDatas.Count != 12)
@@ -158,22 +164,53 @@ namespace YunYan
             }
 
             //規則4:正常數據
-            if (isPermittedLoadReduction)
+            return new ExportData
             {
-                return new ExportData
-                {
-                    Value = value,
-                    Status = isInLoadReductionRange ? "02" : "11"
-                };
-            }
-            else
+                Value = value,
+                Status = "10"
+            };
+
+        }
+
+        /// <summary>
+        /// 取得該小時最後五分鐘活性碳量(9O1A201)
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
+        private double GetLastFiveMinute9O1(DateTime dateTime)
+        {
+            var query = "SELECT sd_9O1A201 FROM sensor_data WHERE sd_time BETWEEN @start AND @end";
+            var startDateTime = dateTime.AddMinutes(-4);
+            var parameter = new Dictionary<string, object>()
             {
-                return new ExportData
+                {"start",startDateTime.ToString("yyyy-MM-dd HH:mm:00") },
+                {"end",dateTime.ToString("yyyy-MM-dd HH:mm:59") }
+            };
+
+            try
+            {
+                using (MySQL sql = new MySQL())
                 {
-                    Value = value,
-                    Status = isInApprovedOperationRange ? "10" : "11"
-                };
+                    var dt = sql.SelectTable(query, parameter);
+                    if (dt != null)
+                    {
+                        double avg = dt.AsEnumerable()
+                                       .Select(row => row.Field<double>("sd_9O1A201"))
+                                       .Average();
+
+                        return avg;
+                    }
+                    else
+                    {
+                        Log.LogMsg("GetLastFiveMinute9O1-找不到資料");
+                    }
+                }
             }
+            catch (Exception ex)
+            {
+                Log.LogMsg("GetLastFiveMinute9O1-" + ex.Message);
+            }
+            return 0;
         }
     }
 }

@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using YunYan.Models;
@@ -311,26 +310,6 @@ namespace YunYan
                     {
                         sql.InsertTable("sensor_data", dic);
                     }
-
-                    //#region 檢查有無寫入資料庫
-                    //try
-                    //{
-                    //    using (MySQL sql = new MySQL())
-                    //    {
-                    //        var query = "SELECT sd_time FROM sensor_data ORDER BY sd_id DESC LIMIT 1";
-                    //        var dt = sql.SelectTable(query);
-                    //        if (dt != null)
-                    //        {
-                    //            DateTime dateTime = Convert.ToDateTime(dt.Rows[0]["sd_time"]);
-                    //            Utility.IMAliveNotify(dateTime);
-                    //        }
-                    //    }
-                    //}
-                    //catch (Exception ex)
-                    //{
-                    //    Log.LogMsg("檢查有無寫入資料庫 錯誤:" + ex.Message);
-                    //}
-                    //#endregion
                 }
 
                 #endregion
